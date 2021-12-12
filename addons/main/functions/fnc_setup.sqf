@@ -32,25 +32,12 @@ tgp_main_minElev = getNumber (_pilotCameraConfig >> "minElev") / 180 * pi;
 tgp_main_maxElev = getNumber (_pilotCameraConfig >> "maxElev") / 180 * pi;
 
 tgp_main_aspectRatio = getResolution # 4;
-tgp_main_featureCamera = "";
 tgp_main_pilotCameraTarget = getPilotCameraTarget _vehicle;
 
-private _fovClasses = "true" configClasses (_pilotCameraConfig >> "OpticsIn");
-tgp_main_OpticsInfo = createHashMapFromArray (_fovClasses apply {
-	[
-        getNumber (_x >> "initFov"),
-		[
-            getArray (_x >> "visionMode"),
-      		getArray (_x >> "thermalMode")
-        ]
-	]
-});
-tgp_main_camFOVLevels = keys tgp_main_OpticsInfo;
-tgp_main_camFOVLevels sort false; // Descending
-tgp_main_FOV = tgp_main_camFOVLevels # 0;
-
 tgp_main_camPos = getPilotCameraPosition _vehicle;
+tgp_main_hasPilotCamera = true;
+tgp_main_isSlewing = false;
+tgp_main_pilotCameraTarget = [false, [0, 0, 0], objNull]; // Separate variable due to using basegame keybind, which first toggles the basegame stabilization
 
-call tgp_main_fnc_setIsPipHidden;
 
 true

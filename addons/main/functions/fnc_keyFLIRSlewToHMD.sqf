@@ -12,13 +12,9 @@
  * [] call tgp_main_fnc_keyFLIRSlewToHMD
  */
 
-if (
-  !tgp_main_controllable
-) exitWith {};
-
 [
   AGLToASL positionCameraToWorld [0, 0, 0],
-  AGLToASL positionCameraToWorld [0, 0, 5000]
+  AGLToASL positionCameraToWorld [0, 0, worldSize]
 ] call tgp_main_fnc_setStabilization;
 
 true

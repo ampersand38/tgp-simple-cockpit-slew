@@ -19,46 +19,50 @@ params [
   ["_tgtPosASL", []],
   ["_sync", true]
 ];
-
 //if (tgp_main_playerIsPilot && {tgp_main_isCopilotInGunnerView}) exitWith {false};
+private _vehicle = vehicle (call CBA_fnc_currentUnit);
 
 tgp_main_pilotCameraTarget params ["_isTracking", "", "_trackObj"];
 
 if (_camPosASL isEqualTo []) then {
-  _camPosASL = AGLToASL (vxf_vehicle modelToWorldVisual (tgp_main_camPos));
+  _camPosASL = AGLToASL (_vehicle modelToWorldVisual (tgp_main_camPos));
 };
 if (_tgtPosASL in [[0, 0, 0], []]) then {
-  private _flirDir = vxf_vehicle vectorModelToWorldVisual (getPilotCameraDirection vxf_vehicle);
+  private _flirDir = _vehicle vectorModelToWorldVisual (getPilotCameraDirection _vehicle);
   _tgtPosASL = _camPosASL vectorAdd (_flirDir vectorMultiply 5000);
 };
 
-private _intersections = lineIntersectsSurfaces [_camPosASL, _tgtPosASL, vxf_vehicle];
+private _intersections = lineIntersectsSurfaces [_camPosASL, _tgtPosASL, _vehicle];
 private _target = objNull;
+private _targetObject = objNull;
 if (_intersections isEqualTo []) then {
-  if (_tgtPosASL # 2 > _camPosASL # 2) then {
-    _target = [_tgtPosASL, objNull] select _isTracking; // Looking up
-  } else {
-    _target = [AGLToASL screenToWorld [0.5, 0.5], objNull] select _isTracking; // Looking down
-  };
-} else {
-  (_intersections # 0) params ["_intersectPosASL", "_surfaceNormal", "_intersectObject", "_parentObject"];
-  if (isNull _intersectObject) then {
-    // Terrain
-    _target = [_intersectPosASL, objNull] select _isTracking; // if already tracking position, untrack
-  } else {
-    // Object
-    if (speed _intersectObject > 0) then {
-      // Moving vehicle
-      _target = [objNull, _intersectObject] select (_trackObj != _intersectObject); // if already tracking same object, untrack
-    } else {
-      // Stationary target
-      _target = [objNull, _intersectPosASL] select (_trackObj != _intersectObject); // if already tracking same object, untrack
+    if (!_isTracking) then {
+        _target = terrainIntersectAtASL [_camPosASL, _tgtPosASL];
+        if (_target isEqualTo [0,0,0]) then {
+            _target = _tgtPosASL;
+        };
     };
-  };
+} else {
+    (_intersections # 0) params ["_intersectPosASL", "_surfaceNormal", "_intersectObject", "_parentObject"];
+    if (isNull _intersectObject) then {
+        // Terrain
+        _target = [_intersectPosASL, objNull] select _isTracking; // if already tracking position, untrack
+    } else {
+        _targetObject = _intersectObject;
+        // Object
+        if (speed _intersectObject > 0) then {
+            // Moving vehicle
+            _target = [objNull, _intersectObject] select (_trackObj != _intersectObject); // if already tracking same object, untrack
+        } else {
+            // Stationary target
+            _target = [objNull, _intersectPosASL] select (_trackObj != _intersectObject); // if already tracking same object, untrack
+        };
+    };
 };
 
-vxf_vehicle setPilotCameraTarget _target;
-
-[[], _target] call tgp_main_fnc_syncPilotCamera;
+[{(_this # 0) setPilotCameraTarget (_this # 1)}, [_vehicle, _target]] call CBA_fnc_execNextFrame;
+_vehicle setPilotCameraTarget _target;
+tgp_main_pilotCameraTarget = getPilotCameraTarget _vehicle;
+tgp_main_pilotCameraTarget set [2, [objNull, _targetObject] select (_target isEqualType [])];
 
 true

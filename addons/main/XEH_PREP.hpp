@@ -1,20 +1,9 @@
-// Framework
-PREP(perFrame);
-PREP(setup);
-PREP(shutDown);
+// testing, update fncs on the fly
+#define PREP(var1) TRIPLES(ADDON,fnc,var1) = { call compile preProcessFileLineNumbers '\MAINPREFIX\PREFIX\SUBPREFIX\COMPONENT_F\functions\DOUBLES(fnc,var1).sqf' }
 
-PREP(handleKeyInputs);
 PREP(handleSlew);
-PREP(initVars);
 PREP(keyDownSLew);
 PREP(keyFLIRSlewToHMD);
-PREP(keyVisionMode);
-PREP(keyZoom);
-PREP(mfdWaypoint);
-PREP(pipStart);
-PREP(pipStop);
-PREP(setFOV);
-PREP(setIsPipHidden);
+PREP(keySlewToWaypoint);
 PREP(setStabilization);
-PREP(setVisionMode);
-PREP(updateCamera);
+PREP(setup);
