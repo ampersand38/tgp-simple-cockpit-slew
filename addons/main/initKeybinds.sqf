@@ -54,28 +54,28 @@
     },{},
     [12, [false, false, false]],false
 ] call CBA_fnc_addKeybind;
+
+[
+"TGP Cockpit Control","tgp_main_key_up","Slew Up", // Control + W
+{if (tgp_main_isPipHidden) exitWith {false}; tgp_main_up = 1; false},{tgp_main_up = 0;},
+[17, [false, true, false]],false
+] call CBA_fnc_addKeybind;
+
+[
+"TGP Cockpit Control","tgp_main_key_down","Slew Down", // Control + S
+{if (tgp_main_isPipHidden) exitWith {false}; tgp_main_down = 1; false},{tgp_main_down = 0;},
+[31, [false, true, false]],false
+] call CBA_fnc_addKeybind;
+
+[
+"TGP Cockpit Control","tgp_main_key_left","Slew Left", // Control + A
+{if (tgp_main_isPipHidden) exitWith {false}; tgp_main_left = 1; false},{tgp_main_left = 0;},
+[30, [false, true, false]],false
+] call CBA_fnc_addKeybind;
+
+[
+"TGP Cockpit Control","tgp_main_key_right","Slew Right", // Control + D
+{if (tgp_main_isPipHidden) exitWith {false}; tgp_main_right = 1; false},{tgp_main_right = 0;},
+[32, [false, true, false]],false
+] call CBA_fnc_addKeybind;
 */
-
-[
-    "TGP Cockpit Control","tgp_main_key_up","Slew Up", // Control + W
-    {if (tgp_main_isPipHidden) exitWith {false}; tgp_main_up = 1; false},{tgp_main_up = 0;},
-    [17, [false, true, false]],false
-] call CBA_fnc_addKeybind;
-
-[
-    "TGP Cockpit Control","tgp_main_key_down","Slew Down", // Control + S
-    {if (tgp_main_isPipHidden) exitWith {false}; tgp_main_down = 1; false},{tgp_main_down = 0;},
-    [31, [false, true, false]],false
-] call CBA_fnc_addKeybind;
-
-[
-    "TGP Cockpit Control","tgp_main_key_left","Slew Left", // Control + A
-    {if (tgp_main_isPipHidden) exitWith {false}; tgp_main_left = 1; false},{tgp_main_left = 0;},
-    [30, [false, true, false]],false
-] call CBA_fnc_addKeybind;
-
-[
-    "TGP Cockpit Control","tgp_main_key_right","Slew Right", // Control + D
-    {if (tgp_main_isPipHidden) exitWith {false}; tgp_main_right = 1; false},{tgp_main_right = 0;},
-    [32, [false, true, false]],false
-] call CBA_fnc_addKeybind;

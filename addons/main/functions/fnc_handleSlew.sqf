@@ -17,29 +17,22 @@ private _vehicle = vehicle (call CBA_fnc_currentUnit);
 // get current dir
 (getPilotCameraRotation _vehicle) params ["_azimuth", "_elevation"];
 
-// check key slew
 private _inputX = 0;
 private _inputY = 0;
-private _keySlew = 0 < (tgp_main_up + tgp_main_down + tgp_main_right + tgp_main_left);
 private _mouseSlew = false; // also used for pilotCamera update
 
-if (_keySlew) then {
-    _inputX = tgp_main_right - tgp_main_left;
-    _inputY = tgp_main_up - tgp_main_down;
-} else {
-    _inputX = inputAction "AimRight" - inputAction "AimLeft";
-    _inputY = inputAction "AimUp" - inputAction "AimDown";
-    _mouseSlew = (_inputX != 0 || {_inputY != 0});
-};
-tgp_main_isSlewing = _keySlew || {tgp_main_slewAim && {_mouseSlew}};
+_inputX = inputAction "AimRight" - inputAction "AimLeft";
+_inputY = inputAction "AimUp" - inputAction "AimDown";
+_mouseSlew = (_inputX != 0 || {_inputY != 0});
+tgp_main_isSlewing = tgp_main_slewAim && {_mouseSlew};
 
 private _pilotCameraTarget = (getPilotCameraTarget _vehicle);
 
 if (tgp_main_isSlewing) then {
     // check if in turret, apply different zoom-based slew speed
-    private _rate = ([0.04 * tgp_main_setting_AimSlewSpeed, 0.08 * tgp_main_setting_KeySlewSpeed] select _keySlew) * tgp_main_FOV;
+    private _rate = (0.04 * tgp_main_setting_AimSlewSpeed) * tgp_main_FOV;
     // customize x axis speed for better feel
-    private _xFactor = tgp_main_aspectRatio * ([tgp_main_setting_AimXFactor, tgp_main_setting_KeyXFactor] select _keySlew);
+    private _xFactor = tgp_main_aspectRatio * tgp_main_setting_AimXFactor;
 
     private _slewX = _rate * _xFactor * _inputX;
     private _slewY = _rate * _inputY;
@@ -53,7 +46,6 @@ if (tgp_main_isSlewing) then {
       _elevation = tgp_main_minElev max _elevation min tgp_main_maxElev;
     };
     _vehicle setPilotCameraRotation [_azimuth, _elevation];
-
     if (_pilotCameraTarget # 0) then {
         private _flirPosWorld = _vehicle modelToWorldVisualWorld tgp_main_camPos;
         private _slewDir = (getPilotCameraDirection _vehicle) vectorMultiply worldSize;

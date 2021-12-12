@@ -53,6 +53,7 @@ if (_intersections isEqualTo []) then {
         if (speed _intersectObject > 0) then {
             // Moving vehicle
             _target = [objNull, _intersectObject] select (_trackObj != _intersectObject); // if already tracking same object, untrack
+            systemChat str _target;
         } else {
             // Stationary target
             _target = [objNull, _intersectPosASL] select (_trackObj != _intersectObject); // if already tracking same object, untrack
