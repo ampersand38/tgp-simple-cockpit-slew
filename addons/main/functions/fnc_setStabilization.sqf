@@ -19,8 +19,11 @@ params [
   ["_tgtPosASL", []],
   ["_sync", true]
 ];
-//if (tgp_main_playerIsPilot && {tgp_main_isCopilotInGunnerView}) exitWith {false};
-private _vehicle = vehicle (call CBA_fnc_currentUnit);
+
+private _unit = call CBA_fnc_currentUnit;
+private _vehicle = vehicle _unit;
+if (_unit == _vehicle) exitWith {false};
+if !(hasPilotCamera _vehicle) exitWith {false};
 
 tgp_main_pilotCameraTarget params ["_isTracking", "", "_trackObj"];
 
@@ -29,7 +32,7 @@ if (_camPosASL isEqualTo []) then {
 };
 if (_tgtPosASL in [[0, 0, 0], []]) then {
   private _flirDir = _vehicle vectorModelToWorldVisual (getPilotCameraDirection _vehicle);
-  _tgtPosASL = _camPosASL vectorAdd (_flirDir vectorMultiply 5000);
+  _tgtPosASL = _camPosASL vectorAdd (_flirDir vectorMultiply worldSize);
 };
 
 private _intersections = lineIntersectsSurfaces [_camPosASL, _tgtPosASL, _vehicle];
