@@ -1,4 +1,4 @@
-name = "TGP Slew Cockpit Control"
+name = "TGP Simple Cockpit Slew"
 prefix = "tgp"
 author = "Ampersand"
 files = [

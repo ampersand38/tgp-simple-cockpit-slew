@@ -1,1 +1,1 @@
-# TGP Slew Cockpit Control
+# TGP Simple Cockpit Slew
