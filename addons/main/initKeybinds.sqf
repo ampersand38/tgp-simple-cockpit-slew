@@ -60,7 +60,7 @@
 ] call CBA_fnc_addKeybind;
 
 [
-"TGP Cockpit Control","tgp_main_key_down","Slew Down", // Control + S
+"TGP Simple Cockpit Slew","tgp_main_key_down","Slew Down", // Control + S
 {if (tgp_main_isPipHidden) exitWith {false}; tgp_main_down = 1; false},{tgp_main_down = 0;},
 [31, [false, true, false]],false
 ] call CBA_fnc_addKeybind;
