@@ -32,6 +32,13 @@
     [20, [false, true, false]], false
 ] call CBA_fnc_addKeybind;
 
+[
+    "TGP Simple Cockpit Slew","tgp_main_key_ccip", // Ctrl + Alt + T
+    ["Track CCIP", "Pilot Camera will (roughly) track the bmob CCIP until a bomb is dropped."],
+    {[] call tgp_main_fnc_trackCCIP; false}, {},
+    [20, [false, true, true]], false
+] call CBA_fnc_addKeybind;
+
 /*
 [
     "TGP Simple Cockpit Slew","tgp_main_key_zoom_inc","FLIR Zoom In", // PLUS
