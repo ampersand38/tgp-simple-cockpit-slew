@@ -5,6 +5,7 @@ ADDON = false;
 #include "XEH_PREP.hpp"
 #include "initSettings.sqf";
 
+tgp_main_ccipOffset = 0;
 tgp_main_hasPilotCamera = false;
 tgp_main_isSlewing = false;
 tgp_main_isTrackingCCIP = false;

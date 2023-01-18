@@ -16,6 +16,7 @@ systemChat "ccip";
 if (tgp_main_isTrackingCCIP) exitWith {tgp_main_isTrackingCCIP = false;};
 
 tgp_main_isTrackingCCIP = true;
+tgp_main_ccipOffset = 0;
 addMissionEventHandler ["draw3D", {
     if (!tgp_main_isTrackingCCIP) exitWith {removeMissionEventHandler ["draw3D", _thisEventHandler];};
 

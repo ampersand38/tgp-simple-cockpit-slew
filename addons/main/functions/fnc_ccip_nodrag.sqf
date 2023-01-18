@@ -37,7 +37,7 @@ private _sqrt = _z^2 + 2 * _g * _altitude;
 if (_sqrt < 0) exitWith {[0, 0, 0]};
 
 private _time = (_z + sqrt _sqrt) / _g;
-_time = _time *
+_time = tgp_main_ccipOffset + _time *
     (1 - 0.000025 * _altitude) *
     (1 - 0.00000001 * (speed _vehicle - 560)^2) *
     (1 + 0.0025 * _elevation);
