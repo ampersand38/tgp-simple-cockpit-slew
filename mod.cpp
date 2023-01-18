@@ -1,7 +1,7 @@
 name = "TGP Simple Cockpit Slew";
 picture = "logo_amp_ca.paa";
 actionName = "GitHub";
-action = "https://github.com/ampersand38/tgp-slew-cockpit-control";
+action = "https://github.com/ampersand38/tgp-simple-cockpit-slew";
 description = "Simple controls for slewing the targeting pod pilot camera while in cockpit view.";
 logo = "logo_amp_ca.paa";
 logoOver = "logo_amp_ca.paa";
