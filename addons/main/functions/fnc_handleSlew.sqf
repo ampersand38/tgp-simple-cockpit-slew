@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * Author: Ampersand
  * Handle slew, turret move, pilotCamera move, fov sync
@@ -12,18 +13,14 @@
  * call tgp_main_fnc_handleSlew
  */
 
-private _vehicle = vehicle (call CBA_fnc_currentUnit);
+private _vehicle = cameraOn;
 
 // get current dir
 (getPilotCameraRotation _vehicle) params ["_azimuth", "_elevation"];
 
-private _inputX = 0;
-private _inputY = 0;
-private _mouseSlew = false; // also used for pilotCamera update
-
-_inputX = inputAction "AimRight" - inputAction "AimLeft";
-_inputY = inputAction "AimUp" - inputAction "AimDown";
-_mouseSlew = (_inputX != 0 || {_inputY != 0});
+private _inputX = inputAction "AimRight" - inputAction "AimLeft";
+private _inputY = inputAction "AimUp" - inputAction "AimDown";
+private _mouseSlew = (_inputX != 0 || {_inputY != 0});
 tgp_main_isSlewing = tgp_main_slewAim && {_mouseSlew};
 
 private _pilotCameraTarget = (getPilotCameraTarget _vehicle);

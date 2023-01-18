@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * Author: Ampersand
  * Set variables for current seat

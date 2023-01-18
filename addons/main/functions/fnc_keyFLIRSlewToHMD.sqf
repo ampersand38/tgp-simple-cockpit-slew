@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * Author: Ampersand
  * Lock FLIR to current aim pos or obj
@@ -11,6 +12,8 @@
  * Example:
  * [] call tgp_main_fnc_keyFLIRSlewToHMD
  */
+
+EXITCHECK
 
 [
   AGLToASL positionCameraToWorld [0, 0, 0],

@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * Author: Ampersand
  * Lock FLIR to current aim pos or obj
@@ -22,13 +23,13 @@ params [
 
 private _unit = call CBA_fnc_currentUnit;
 private _vehicle = vehicle _unit;
-if (_unit == _vehicle) exitWith {false};
-if !(hasPilotCamera _vehicle) exitWith {false};
+
+EXITCHECK
 
 tgp_main_pilotCameraTarget params ["_isTracking", "", "_trackObj"];
 
 if (_camPosASL isEqualTo []) then {
-  _camPosASL = AGLToASL (_vehicle modelToWorldVisual (tgp_main_camPos));
+  _camPosASL = _vehicle modelToWorldVisualWorld tgp_main_camPos;
 };
 if (_tgtPosASL in [[0, 0, 0], []]) then {
   private _flirDir = _vehicle vectorModelToWorldVisual (getPilotCameraDirection _vehicle);

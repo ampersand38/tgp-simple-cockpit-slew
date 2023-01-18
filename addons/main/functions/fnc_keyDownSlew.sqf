@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * Author: Ampersand
  * Start slewing TGP
@@ -12,15 +13,10 @@
  * call tgp_main_fnc_keyDownSlew
  */
 
-if (
-    !tgp_main_hasPilotCamera ||
-    {cameraView != "INTERNAL"} ||
-    {visibleMap} ||
-    {!isNull curatorCamera}
-) exitWith {false};
-
 private _unit = call CBA_fnc_currentUnit;
 private _vehicle = vehicle _unit;
+
+EXITCHECK
 
 tgp_main_slewAim = true;
 

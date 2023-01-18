@@ -1,3 +1,4 @@
+#include "script_component.hpp"
 /*
  * Author: Ampersand
  * Lock pilot camera to custom waypoint (shift-click) or next waypoint
@@ -12,14 +13,10 @@
  * [_vehicle] call tgp_main_fnc_keySlewToWaypoint
  */
 
- if (
-     cameraView != "INTERNAL" ||
-     {visibleMap} ||
-     {!isNull curatorCamera}
- ) exitWith {false};
+private _unit = call CBA_fnc_currentUnit;
+private _vehicle = vehicle _unit;
 
- private _unit = call CBA_fnc_currentUnit;
- private _vehicle = vehicle _unit;
+EXITCHECK
 
 if (customWaypointPosition isNotEqualTo []) exitWith {
   _vehicle setPilotCameraTarget AGLToASL customWaypointPosition;
