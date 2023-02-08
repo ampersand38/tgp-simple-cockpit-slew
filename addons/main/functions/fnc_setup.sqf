@@ -40,5 +40,4 @@ tgp_main_hasPilotCamera = true;
 tgp_main_isSlewing = false;
 tgp_main_pilotCameraTarget = [false, [0, 0, 0], objNull]; // Separate variable due to using basegame keybind, which first toggles the basegame stabilization
 
-
 true

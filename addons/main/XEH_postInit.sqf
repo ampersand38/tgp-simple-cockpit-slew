@@ -12,9 +12,9 @@ if (hasInterface) then {
                 };
 
                 tgp_main_FOV = getObjectFOV _vehicle;
-                }, 0, vehicle (call CBA_fnc_currentUnit)] call CBA_fnc_addPerFrameHandler;
-            };
-            }] call CBA_fnc_addPlayerEventHandler;
+            }, 0, vehicle (call CBA_fnc_currentUnit)] call CBA_fnc_addPerFrameHandler;
+        };
+    }] call CBA_fnc_addPlayerEventHandler;
 
     addUserActionEventHandler ["gunElevUp", "Activate", { tgp_main_ccipOffset = tgp_main_ccipOffset + 1; }];
     addUserActionEventHandler ["gunElevDown", "Activate", { tgp_main_ccipOffset = tgp_main_ccipOffset - 1; }];
