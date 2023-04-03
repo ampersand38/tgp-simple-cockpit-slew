@@ -13,12 +13,15 @@
  * call tgp_main_fnc_keyDownSlew
  */
 
-private _unit = call CBA_fnc_currentUnit;
-private _vehicle = vehicle _unit;
-
 EXITCHECK
 
 tgp_main_slewAim = true;
+
+RESET_VARIABLES
+
+GVAR(mode) = [] call FUNC(setup);
+
+if (GVAR(mode) == 0) exitWith {false};
 
 if (tgp_main_setting_AimSlewBlockMouse && {isNil "ace_interact_menu_keyDown" || {!ace_interact_menu_keyDown}}) then {
     if (!(uiNamespace getVariable ["tgp_main_mouseBlocker", false])) then {
@@ -28,12 +31,14 @@ if (tgp_main_setting_AimSlewBlockMouse && {isNil "ace_interact_menu_keyDown" || 
     };
 };
 
-[{
-    params ["", "_pfID"];
-    if (!tgp_main_slewAim) exitWith {
-        [_pfID] call CBA_fnc_removePerFrameHandler;
+switch (GVAR(mode)) do {
+    case (MODE_PILOTCAMERA): {
+        [FUNC(handleSlew), 0] call CBA_fnc_addPerFrameHandler;
     };
-    [] call tgp_main_fnc_handleSlew;
-}, 0] call CBA_fnc_addPerFrameHandler;
+    case (MODE_TURRET): {
+        if (!GVAR(isAutonomous)) then {tgp_main_vehicle setAutonomous true;};
+        [FUNC(handleSlewTurret), 0] call CBA_fnc_addPerFrameHandler;
+    };
+};
 
 false

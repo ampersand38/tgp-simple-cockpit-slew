@@ -2,20 +2,35 @@
 
 if (hasInterface) then {
     #include "initKeybinds.sqf"
-    ["vehicle", FUNC(setup), true] call CBA_fnc_addPlayerEventHandler;
-    ["cameraView", {
-        if ((_this # 1) == "GUNNER") then {
-            [{
-                params ["_vehicle", "_idPFH"];
-                if (cameraView != "GUNNER" ) exitWith {
-                    [_idPFH] call CBA_fnc_removePerFrameHandler;
-                };
-
-                tgp_main_FOV = getObjectFOV _vehicle;
-            }, 0, vehicle (call CBA_fnc_currentUnit)] call CBA_fnc_addPerFrameHandler;
-        };
-    }] call CBA_fnc_addPlayerEventHandler;
 
     addUserActionEventHandler ["gunElevUp", "Activate", { tgp_main_ccipOffset = tgp_main_ccipOffset + 1; }];
     addUserActionEventHandler ["gunElevDown", "Activate", { tgp_main_ccipOffset = tgp_main_ccipOffset - 1; }];
+
+/*
+    ["vehicle", FUNC(setup), true] call CBA_fnc_addPlayerEventHandler;
+
+    {
+        addUserActionEventHandler [_x, "Activate", FUNC(handlePanel)];
+    } forEach [
+        "uavView",
+        "uavViewToggle",
+        "ListLeftVehicleDisplay",
+        "ListRightVehicleDisplay",
+        "ListPrevLeftVehicleDisplay",
+        "ListPrevRightVehicleDisplay"
+    ];
+
+    {
+        addUserActionEventHandler [_x, "Activate", FUNC(handleZoom)];
+    } forEach [
+        "pilotCamera",
+        "zoomTemp",
+        "zoomIn",
+        "zoomInToggle",
+        "zoomOut",
+        "zoomOutToggle",
+        "zoomContIn",
+        "zoomContOut"
+    ];
+*/
 };

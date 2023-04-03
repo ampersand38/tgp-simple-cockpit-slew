@@ -8,6 +8,7 @@
             (findDisplay 86005) closeDisplay 0;
         };
         tgp_main_slewAim = false;
+        if (!isNull tgp_gunner) then {deleteVehicle tgp_gunner};
     },
     [48, [false, false, false]], false
 ] call CBA_fnc_addKeybind;

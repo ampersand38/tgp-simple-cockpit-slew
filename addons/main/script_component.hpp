@@ -16,3 +16,10 @@
 #endif
 
 #include "\z\tgp\addons\main\script_macros.hpp"
+
+#define RESET_VARIABLES  tgp_main_ccipOffset = 0; \
+tgp_main_vehicle = objNull; \
+tgp_main_isSlewing = false; \
+tgp_main_isTrackingCCIP = false; \
+GVAR(mode) = 0; \
+tgp_main_pilotCameraTarget = [false, [0, 0, 0], objNull];

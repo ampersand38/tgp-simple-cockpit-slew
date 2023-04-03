@@ -22,7 +22,10 @@
     ["Aim Slew Pan Speed", "Sensitivity multiplier for pan vs tilt. Use this to adjust diagonal movement."], // Pretty name shown inside the ingame settings menu. Can be stringtable entry.
     "TGP Simple Cockpit Slew", // Pretty name of the category where the setting can be found. Can be stringtable entry.
     [0.01, 100, 1, 2], // data for this setting: [min, max, default, number of shown trailing decimals]
-    nil // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    0, // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+    {
+        tgp_main_setting_AimXFactor = (getResolution select 4) * tgp_main_setting_AimXFactor; // Customize x axis speed for better feel
+    }
 ] call CBA_fnc_addSetting;
 
 /*

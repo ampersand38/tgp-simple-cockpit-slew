@@ -16,58 +16,84 @@
  */
 
 params [
-  ["_camPosASL", []],
   ["_tgtPosASL", []],
-  ["_sync", true]
+  ["_camPosASL", []],
+  ["_track", false]
 ];
-
-private _unit = call CBA_fnc_currentUnit;
-private _vehicle = vehicle _unit;
 
 EXITCHECK
 
-tgp_main_pilotCameraTarget params ["_isTracking", "", "_trackObj"];
+tgp_main_pilotCameraTarget params ["_isTracking", "", "_oldObject"];
 
 if (_camPosASL isEqualTo []) then {
-  _camPosASL = _vehicle modelToWorldVisualWorld tgp_main_camPos;
+    _camPosASL = tgp_main_vehicle modelToWorldVisualWorld (tgp_main_vehicle selectionPosition tgp_main_camPos);
 };
 if (_tgtPosASL in [[0, 0, 0], []]) then {
-  private _flirDir = _vehicle vectorModelToWorldVisual (getPilotCameraDirection _vehicle);
-  _tgtPosASL = _camPosASL vectorAdd (_flirDir vectorMultiply worldSize);
+    private _flirDir = switch (GVAR(mode)) do {
+        case (MODE_PILOTCAMERA): {
+            tgp_main_vehicle vectorModelToWorldVisual (getPilotCameraDirection tgp_main_vehicle);
+        };
+        case (MODE_TURRET): {
+            private _azimuth = missionNamespace getVariable ["tgp_main_azimuth", tgp_main_vehicle animationSourcePhase tgp_main_animSrcBody];
+            private _elevation = missionNamespace getVariable ["tgp_main_elevation", tgp_main_vehicle animationSourcePhase tgp_main_animSrcGun];
+            [5000, -deg _azimuth, deg _elevation] call CBA_fnc_polar2vect;
+        };
+    };
+
+    _tgtPosASL = _camPosASL vectorAdd (_flirDir vectorMultiply 5000);
 };
 
-private _intersections = lineIntersectsSurfaces [_camPosASL, _tgtPosASL, _vehicle];
+// If _isTracking then untrack
+private _willTrack = false;
+private _newObject = objNull;
+private _newPosASL = [0, 0, 0];
 private _target = objNull;
-private _targetObject = objNull;
+private _intersections = lineIntersectsSurfaces [_camPosASL, _tgtPosASL, tgp_main_vehicle];
+
 if (_intersections isEqualTo []) then {
-    if (!_isTracking) then {
+    // No intersections
+    if (!_isTracking || {_track}) then {
+        _willTrack = true;
+        // Check terrain
         _target = terrainIntersectAtASL [_camPosASL, _tgtPosASL];
-        if (_target isEqualTo [0,0,0]) then {
+        if (_target isEqualTo [0, 0, 0]) then {
             _target = _tgtPosASL;
         };
     };
 } else {
     (_intersections # 0) params ["_intersectPosASL", "_surfaceNormal", "_intersectObject", "_parentObject"];
-    if (isNull _intersectObject) then {
+
+    if (isNull _intersectObject && {!_isTracking || {_track}}) then {
         // Terrain
-        _target = [_intersectPosASL, objNull] select _isTracking; // if already tracking position, untrack
+        _willTrack = true;
+        _target = _intersectPosASL;
+        _newPosASL = _intersectPosASL;
     } else {
-        _targetObject = _intersectObject;
         // Object
-        if (speed _intersectObject > 0) then {
-            // Moving vehicle
-            _target = [objNull, _intersectObject] select (_trackObj != _intersectObject); // if already tracking same object, untrack
-            systemChat str _target;
-        } else {
-            // Stationary target
-            _target = [objNull, _intersectPosASL] select (_trackObj != _intersectObject); // if already tracking same object, untrack
+        _newObject = _intersectObject;
+        // If re-track on same object, untrack
+        if (_oldObject != _intersectObject) then {
+            _willTrack = true;
+            if (speed _intersectObject > 0) then {
+                _target = _intersectObject; // Moving vehicle
+            } else {
+                _target = _intersectPosASL; // Stationary target
+                _newPosASL = _intersectPosASL; // Stationary target
+            };
         };
     };
 };
 
-[{(_this # 0) setPilotCameraTarget (_this # 1)}, [_vehicle, _target]] call CBA_fnc_execNextFrame;
-_vehicle setPilotCameraTarget _target;
-tgp_main_pilotCameraTarget = getPilotCameraTarget _vehicle;
-tgp_main_pilotCameraTarget set [2, [objNull, _targetObject] select (_target isEqualType [])];
+tgp_main_pilotCameraTarget = [_willTrack, _newPosASL, _newObject];
 
-true
+switch (GVAR(mode)) do {
+    case (MODE_PILOTCAMERA): {
+        [{(_this # 0) setPilotCameraTarget (_this # 1)}, [tgp_main_vehicle, _target]] call CBA_fnc_execNextFrame;
+        tgp_main_vehicle setPilotCameraTarget _target;
+    };
+    case (MODE_TURRET): {
+        tgp_main_vehicle lockCameraTo [_target, [0], true];
+    };
+};
+
+false

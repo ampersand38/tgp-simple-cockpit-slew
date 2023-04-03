@@ -10,34 +10,38 @@
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [_vehicle] call tgp_main_fnc_keySlewToWaypoint
+ * call tgp_main_fnc_keySlewToWaypoint
  */
-
-private _unit = call CBA_fnc_currentUnit;
-private _vehicle = vehicle _unit;
 
 EXITCHECK
 
-if (customWaypointPosition isNotEqualTo []) exitWith {
-  _vehicle setPilotCameraTarget AGLToASL customWaypointPosition;
-  tgp_main_pilotCameraTarget = getPilotCameraTarget _vehicle;
-  true
+private _posASL = (call CBA_fnc_currentUnit) call {
+    if (customWaypointPosition isNotEqualTo []) exitWith {
+        AGLToASL customWaypointPosition
+    };
+
+    private _currentWaypointIndex = currentWaypoint group _this;
+    private _waypoints = waypoints group _this;
+
+    if (_currentWaypointIndex < count _waypoints) exitWith { // valid base game waypoint
+        AGLToASL waypointPosition [group _this, _currentWaypointIndex]
+    };
+
+    if (!isNil "ace_microdagr_currentwaypoint" && {ace_microdagr_currentwaypoint > -1}) exitWith {
+        ((_this getVariable "ace_microdagr_waypoints") # ace_microdagr_currentwaypoint # 1)
+    };
+
+    objNull
 };
 
-private _currentWaypointIndex = currentWaypoint group player;
-private _waypoints = waypoints group player;
-
-if (_currentWaypointIndex < count _waypoints) exitWith { // valid base game waypoint
-  private _target = AGLToASL waypointPosition [group player, _currentWaypointIndex];
-  _vehicle setPilotCameraTarget _target;
-  tgp_main_pilotCameraTarget = getPilotCameraTarget _vehicle;
-  true
-};
-
-if (!isNil "ace_microdagr_currentwaypoint" && {ace_microdagr_currentwaypoint > -1}) exitWith {
-  _vehicle setPilotCameraTarget ((player getVariable "ace_microdagr_waypoints") # ace_microdagr_currentwaypoint # 1);
-  tgp_main_pilotCameraTarget = getPilotCameraTarget _vehicle;
-  true
+switch (GVAR(mode)) do {
+    case (MODE_PILOTCAMERA): {
+        tgp_main_vehicle setPilotCameraTarget _posASL;
+        tgp_main_pilotCameraTarget = getPilotCameraTarget tgp_main_vehicle;
+    };
+    case (MODE_TURRET): {
+        tgp_main_vehicle lockCameraTo [_posASL, [0], true];
+    };
 };
 
 false

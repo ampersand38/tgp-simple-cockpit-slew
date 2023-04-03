@@ -3,8 +3,13 @@
 
 PREP(ccip_drag);
 PREP(ccip_nodrag);
+PREP(getVehicle);
 PREP(handleSlew);
+PREP(handleSlewTurret);
+PREP(handleZoom);
+PREP(isSlewable);
 PREP(keyDownSLew);
+PREP(handlePanel);
 PREP(keyFLIRSlewToHMD);
 PREP(keySlewToWaypoint);
 PREP(setStabilization);
