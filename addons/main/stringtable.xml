@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="BLF">
+    <Package name="Main">
+        <Key ID="STR_TGP_Main_Slew">
+            <English>TGP Simple Cockpit Slew</English>
+        </Key>
+        <Key ID="STR_TGP_Main_SlewHold">
+            <English>Slew (Hold)</English>
+        </Key>
+        <Key ID="STR_TGP_Main_SlewHold_Tooltip">
+            <English>Hold this key and use mouse or 'Aim <Up|Down|Left|Right>' input to slew the active camera.</English>
+        </Key>
+        <Key ID="STR_TGP_Main_HMD">
+            <English>Lock to HMD</English>
+        </Key>
+        <Key ID="STR_TGP_Main_HMD_Tooltip">
+            <English>Lock the active camera to the current aim point of the HMD.</English>
+        </Key>
+        <Key ID="STR_TGP_Main_Waypoint">
+            <English>Lock To Waypoint</English>
+        </Key>
+        <Key ID="STR_TGP_Main_Waypoint_Tooltip">
+            <English>Lock the active camera to the current waypoint. Priority: Shift-Click > Group > ACE MicroDAGR.</English>
+        </Key>
+        <Key ID="STR_TGP_Main_Stabilize">
+            <English>Stabilize</English>
+        </Key>
+        <Key ID="STR_TGP_Main_Stabilize_Tooltip">
+            <English>Toggle stabilization of the active camera at the current target.</English>
+        </Key>
+        <Key ID="STR_TGP_Main_CCIP">
+            <English>Track CCIP</English>
+        </Key>
+        <Key ID="STR_TGP_Main_CCIP_Tooltip">
+            <English>Pilot Camera will (roughly) track the bomb CCIP until a bomb is dropped.</English>
+        </Key>
+    </Package>
+</Project>

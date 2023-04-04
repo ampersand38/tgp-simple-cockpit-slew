@@ -17,6 +17,4 @@ private _panels = infoPanel "left" + infoPanel "right";
 
 [{
     _this isNotEqualTo (infoPanel "left" + infoPanel "right");
-}, {
-    [] call FUNC(setup);
-}, _panels, 1] call CBA_fnc_waitUntilAndExecute;
+}, FUNC(setup), _panels, 1] call CBA_fnc_waitUntilAndExecute;

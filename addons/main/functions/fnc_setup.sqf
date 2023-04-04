@@ -4,8 +4,7 @@
  * Set variables for current seat
  *
  * Arguments:
- * 0: Unit <OBJECT>
- * 1: Vehicle <OBJECT>
+ * None
  *
  * Return Value:
  * Slew Mode <NUMBER>
@@ -14,7 +13,7 @@
  * [] call tgp_main_fnc_setup
  */
 
-params [["_unit", call CBA_fnc_currentUnit], ["_vehicle", vehicle call CBA_fnc_currentUnit]];
+[] params [["_unit", call CBA_fnc_currentUnit], ["_vehicle", vehicle call CBA_fnc_currentUnit]];
 
 RESET_VARIABLES
 
@@ -28,17 +27,22 @@ if (
 if (_vehicle == _unit) exitWith {MODE_FAILED};
 
 if ([_vehicle] call FUNC(isSlewable)) exitWith {
+    systemChat "slewable";
     private _turretConfig = [_vehicle, [0]] call CBA_fnc_getTurret;
-    tgp_main_minTurn = getNumber (_turretConfig >> "minTurn") / 180 * pi;
-    tgp_main_maxTurn = getNumber (_turretConfig >> "maxTurn") / 180 * pi;
-    tgp_main_minElev = getNumber (_turretConfig >> "minElev") / 180 * pi;
-    tgp_main_maxElev = getNumber (_turretConfig >> "maxElev") / 180 * pi;
-    tgp_main_animSrcBody = getText (_turretConfig >> "animationSourceBody");
-    tgp_main_animSrcGun = getText (_turretConfig >> "animationSourceGun");
-
+    tgp_main_minTurn = getNumber (_turretConfig >> "minTurn");
+    tgp_main_maxTurn = getNumber (_turretConfig >> "maxTurn");
+    tgp_main_minElev = getNumber (_turretConfig >> "minElev");
+    tgp_main_maxElev = getNumber (_turretConfig >> "maxElev");
+    //tgp_main_animSrcBody = getText (_turretConfig >> "animationSourceBody");
+    //tgp_main_animSrcGun = getText (_turretConfig >> "animationSourceGun");
     tgp_main_camPos = getText (_turretConfig >> "memoryPointGunnerOptics");
-    tgp_main_gunBeg = getText (_turretConfig >> "gunBeg");
-    tgp_main_gunEnd = getText (_turretConfig >> "gunEnd");
+    if (tgp_main_camPos == "pip0_pos") then {
+        tgp_main_camDir = "pip0_dir";
+    } else {
+        tgp_main_camPos = getText (_turretConfig >> "gunEnd");
+        tgp_main_camDir = getText (_turretConfig >> "gunBeg");
+    };
+
     private _lockedTo = _vehicle lockedCameraTo [0];
     tgp_main_pilotCameraTarget = if (_lockedTo isEqualTo objNull) then {
         [false, [0, 0, 0], objNull]

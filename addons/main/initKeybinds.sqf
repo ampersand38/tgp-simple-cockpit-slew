@@ -1,41 +1,36 @@
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 
 [
-    "TGP Simple Cockpit Slew","tgp_main_key_slew",
-    ["Slew Aim", "Hold this key and use mouse or 'Aim <Up|Down|Left|Right>' input to slew the Pilot Camera."], // B
-    {[] call tgp_main_fnc_keyDownSlew},{
-        if (uiNamespace getVariable ["tgp_main_mouseBlocker", false]) then {
-            (findDisplay 86005) closeDisplay 0;
-        };
-        tgp_main_slewAim = false;
-        if (!isNull tgp_gunner) then {deleteVehicle tgp_gunner};
-    },
+    "TGP Simple Cockpit Slew","tgp_main_key_slew", // B
+    [LSTRING(SlewHold), LSTRING(SlewHold_Tooltip)],
+    tgp_main_fnc_inputSlewDown, tgp_main_fnc_inputSlewUp,
     [48, [false, false, false]], false
 ] call CBA_fnc_addKeybind;
 
 [
     "TGP Simple Cockpit Slew","tgp_main_key_slewHMD", // Shift + T
-    ["Slew To HMD", "Slew the Pilot Camera to the aim point of the HMD."],
+    [LSTRING(HMD), LSTRING(HMD_Tooltip)],
     {[] call tgp_main_fnc_keyFLIRSlewToHMD; false}, {},
     [20, [true, false, false]], false
 ] call CBA_fnc_addKeybind;
 
 [
-    "TGP Simple Cockpit Slew","tgp_main_key_slewWaypoint","Slew To Waypoint", // Alt + T
+    "TGP Simple Cockpit Slew","tgp_main_key_slewWaypoint", // Alt + T
+    [LSTRING(Waypoint), LSTRING(Waypoint_Tooltip)],
     {[] call tgp_main_fnc_keySlewToWaypoint; false}, {},
     [20, [false, false, true]], false
 ] call CBA_fnc_addKeybind;
 
 [
     "TGP Simple Cockpit Slew","tgp_main_key_stabilize", // Ctrl + T
-    ["Stabilize", "Toggle stabilization of the Pilot Camera where it is currently pointed"],
+    [LSTRING(Stabilize), LSTRING(Stabilize_Tooltip)],
     {[] call tgp_main_fnc_setStabilization; false}, {},
     [20, [false, true, false]], false
 ] call CBA_fnc_addKeybind;
 
 [
     "TGP Simple Cockpit Slew","tgp_main_key_ccip", // Ctrl + Alt + T
-    ["Track CCIP", "Pilot Camera will (roughly) track the bomb CCIP until a bomb is dropped."],
+    [LSTRING(CCIP), LSTRING(CCIP_Tooltip)],
     {[] call tgp_main_fnc_trackCCIP; false}, {},
     [20, [false, true, true]], false
 ] call CBA_fnc_addKeybind;

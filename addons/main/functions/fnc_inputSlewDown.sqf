@@ -10,7 +10,7 @@
  * Block other input
  *
  * Example:
- * call tgp_main_fnc_keyDownSlew
+ * call tgp_main_fnc_inputSlewDown
  */
 
 EXITCHECK
@@ -19,7 +19,7 @@ tgp_main_slewAim = true;
 
 RESET_VARIABLES
 
-GVAR(mode) = [] call FUNC(setup);
+GVAR(mode) = call FUNC(setup);
 
 if (GVAR(mode) == 0) exitWith {false};
 

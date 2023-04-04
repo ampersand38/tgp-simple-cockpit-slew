@@ -1,6 +1,12 @@
 class UserActionsConflictGroups {
     class ActionGroups {
-
+        GVAR(ActionGroup)[] = {
+            QGVAR(SlewHold),
+            QGVAR(HMD),
+            QGVAR(Waypoint),
+            QGVAR(Stabilize),
+            QGVAR(CCIP)
+        };
     };
 
     class CollisionGroups {
@@ -8,6 +14,6 @@ class UserActionsConflictGroups {
         //carMove[] += {"TAG_MyActionGroup"};
 
         // Or alternatively add your own collision group (which is usually preferrable):
-        //TAG_MyActionGroupCollisions[] = {"basic", "vehBasic", "HeadMove", "TAG_MyActionGroup"};
+        GVAR(ActionGroupCollisions)[] = {"basic", "vehBasic", "HeadMove", QGVAR(ActionGroup)};
     };
 };

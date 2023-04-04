@@ -18,12 +18,7 @@
 params ["_vehicle"];
 
 if (unitIsUAV _vehicle) exitWith {true};
-/*
-private _groupSelectedUnits = groupSelectedUnits call CBA_fnc_currentUnit;
-if (count _groupSelectedUnits != 1) exitWith {false};
 
-private _gunner = _groupSelectedUnits select 0;
-*/
 private _turretConfig = [_vehicle, [0]] call CBA_fnc_getTurret;
 if (getNumber (_turretConfig >> "stabilizedInAxes") != STABILIZEDINAXES_XY) exitWith {false};
 
@@ -42,9 +37,3 @@ if (isNull _gunner) then {
 };
 
 true
-
-/*
-private _turretOpticsMode = _vehicle getTurretOpticsMode _turret;
-private _turretOpticsModeConfig = ("true" configClasses (_turretConfig >> "OpticsIn")) select _turretOpticsMode;
-if( getNumber (_turretConfig >> "stabilizedInAxes") != STABILIZEDINAXES_XY ) exitWith {false};
-*/

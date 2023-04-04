@@ -34,9 +34,12 @@ if (_tgtPosASL in [[0, 0, 0], []]) then {
             tgp_main_vehicle vectorModelToWorldVisual (getPilotCameraDirection tgp_main_vehicle);
         };
         case (MODE_TURRET): {
-            private _azimuth = missionNamespace getVariable ["tgp_main_azimuth", tgp_main_vehicle animationSourcePhase tgp_main_animSrcBody];
-            private _elevation = missionNamespace getVariable ["tgp_main_elevation", tgp_main_vehicle animationSourcePhase tgp_main_animSrcGun];
-            [5000, -deg _azimuth, deg _elevation] call CBA_fnc_polar2vect;
+            tgp_main_vehicle vectorModelToWorldVisual (
+                (tgp_main_vehicle selectionPosition tgp_main_gunEnd)
+                vectorFromTo
+                (tgp_main_vehicle selectionPosition tgp_main_gunBeg)
+                vectorMultiply 5000
+            )
         };
     };
 
@@ -62,12 +65,14 @@ if (_intersections isEqualTo []) then {
     };
 } else {
     (_intersections # 0) params ["_intersectPosASL", "_surfaceNormal", "_intersectObject", "_parentObject"];
-
-    if (isNull _intersectObject && {!_isTracking || {_track}}) then {
+systemChat str [(isNull _intersectObject && {!_isTracking || {_track}})];
+    if (isNull _intersectObject) then {
         // Terrain
-        _willTrack = true;
-        _target = _intersectPosASL;
-        _newPosASL = _intersectPosASL;
+        if (!_isTracking || {_track}) then {
+            _willTrack = true;
+            _target = _intersectPosASL;
+            _newPosASL = _intersectPosASL;
+        };
     } else {
         // Object
         _newObject = _intersectObject;
