@@ -21,7 +21,7 @@ def check_sqf_syntax(filepath):
     bad_count_file = 0
     def pushClosing(t):
         closingStack.append(closing.expr)
-        closing << Literal( closingFor[t[0]] )
+        closing << Literal( closingFor[ttgp_main_turret] )
 
     def popClosing():
         closing << closingStack.pop()

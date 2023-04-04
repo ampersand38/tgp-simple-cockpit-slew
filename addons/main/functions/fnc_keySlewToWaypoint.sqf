@@ -45,7 +45,7 @@ switch (GVAR(mode)) do {
         tgp_main_vehicle setPilotCameraTarget _posASL;
     };
     case (MODE_TURRET): {
-        tgp_main_vehicle lockCameraTo [_posASL, [0], true];
+        tgp_main_vehicle lockCameraTo [_posASL, tgp_main_turret, true];
     };
 };
 

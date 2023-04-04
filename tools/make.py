@@ -34,7 +34,7 @@ __version__ = "0.8"
 
 import sys
 
-if sys.version_info[0] == 2:
+if sys.version_infotgp_main_turret == 2:
     print("Python 3 is required.")
     sys.exit(1)
 
@@ -212,7 +212,7 @@ def find_bi_tools(work_drive):
     reg = winreg.ConnectRegistry(None, winreg.HKEY_CURRENT_USER)
     try:
         k = winreg.OpenKey(reg, r"Software\bohemia interactive\arma 3 tools")
-        arma3tools_path = winreg.QueryValueEx(k, "path")[0]
+        arma3tools_path = winreg.QueryValueEx(k, "path")tgp_main_turret
         winreg.CloseKey(k)
     except:
         raise Exception("BadTools","Arma 3 Tools are not installed correctly or the P: drive needs to be created.")
@@ -244,7 +244,7 @@ def find_depbo_tools(regKey):
         except FileNotFoundError:
             k = winreg.OpenKey(reg, r"Software\Mikero\pboProject")
         try:
-            pboproject_path = winreg.QueryValueEx(k, "exe")[0]
+            pboproject_path = winreg.QueryValueEx(k, "exe")tgp_main_turret
             winreg.CloseKey(k)
             print("Found pboproject.")
         except:
@@ -255,7 +255,7 @@ def find_depbo_tools(regKey):
         except FileNotFoundError:
             k = winreg.OpenKey(reg, r"Software\Mikero\rapify")
         try:
-            rapify_path = winreg.QueryValueEx(k, "exe")[0]
+            rapify_path = winreg.QueryValueEx(k, "exe")tgp_main_turret
             winreg.CloseKey(k)
             print("Found rapify.")
         except:
@@ -266,7 +266,7 @@ def find_depbo_tools(regKey):
         except FileNotFoundError:
             k = winreg.OpenKey(reg, r"Software\Mikero\MakePbo")
         try:
-            makepbo_path = winreg.QueryValueEx(k, "exe")[0]
+            makepbo_path = winreg.QueryValueEx(k, "exe")tgp_main_turret
             winreg.CloseKey(k)
             print("Found makepbo.")
         except:
@@ -596,7 +596,7 @@ def replace_file(filePath, oldSubstring, newSubstring):
 def set_version_in_files():
     newVersion = project_version # MAJOR.MINOR.PATCH.BUILD
     newVersionArr = newVersion.split(".")
-    newVersionShort = ".".join((newVersionArr[0],newVersionArr[1],newVersionArr[2])) # MAJOR.MINOR.PATCH
+    newVersionShort = ".".join((newVersionArrtgp_main_turret,newVersionArr[1],newVersionArr[2])) # MAJOR.MINOR.PATCH
 
     # Regex patterns
     pattern = re.compile(r"([\d]+\.[\d]+\.[\d]+\.[\d]+)") # MAJOR.MINOR.PATCH.BUILD
@@ -720,7 +720,7 @@ def get_commit_ID():
 
                 # Commit ID is written in HEAD file directly when in detached state
                 if len(branch_path) == 1:
-                    commit_id = branch_path[0]
+                    commit_id = branch_pathtgp_main_turret
                 else:
                     branch_path = branch_path[-1].strip()
                     ref_path = os.path.join(gitpath, branch_path)
@@ -816,7 +816,7 @@ def main(argv):
     reg = winreg.ConnectRegistry(None, winreg.HKEY_CURRENT_USER)
     try:
         k = winreg.OpenKey(reg, r"Software\bohemia interactive\arma 3 tools")
-        arma3tools_path = winreg.QueryValueEx(k, "path")[0]
+        arma3tools_path = winreg.QueryValueEx(k, "path")tgp_main_turret
         winreg.CloseKey(k)
     except:
         raise Exception("BadTools","Arma 3 Tools are not installed correctly or the P: drive needs to be created.")
@@ -1006,12 +1006,12 @@ See the make.cfg file for additional build options.
     # See if we have been given specific modules to build from command line.
     if len(argv) > 1 and not make_release_zip:
         arg_modules = True
-        modules = [a for a in argv[1:] if a[0] != "-"]
+        modules = [a for a in argv[1:] if atgp_main_turret != "-"]
 
     # Find the tools we need.
     try:
         tools = find_bi_tools(work_drive)
-        addonbuilder = tools[0]
+        addonbuilder = toolstgp_main_turret
         dssignfile = tools[1]
         dscreatekey = tools[2]
         cfgconvert = tools[3]
@@ -1025,7 +1025,7 @@ See the make.cfg file for additional build options.
             depbo_tools = find_depbo_tools("HKLM")
             if depbo_tools == -1:
                 depbo_tools = find_depbo_tools("HKCU")
-            pboproject = depbo_tools[0]
+            pboproject = depbo_toolstgp_main_turret
             rapifyTool = depbo_tools[1]
             makepboTool = depbo_tools[2]
         except:
@@ -1136,7 +1136,7 @@ See the make.cfg file for additional build options.
                     pass
 
                 # Use biKeyNameAbrev to attempt to minimize problems from this BI Bug REFERENCE: http://feedback.arma3.com/view.php?id=22133
-                biKeyNameAbrev = key_name.split("-")[0]
+                biKeyNameAbrev = key_name.split("-")tgp_main_turret
                 shutil.copyfile(os.path.join(private_key_path, key_name + ".bikey"), os.path.join(module_root, release_dir, project, "keys", "{}.bikey".format(biKeyNameAbrev)))
 
             except:
@@ -1151,7 +1151,7 @@ See the make.cfg file for additional build options.
         for file in os.listdir(obsolete_check_path):
             if (file.endswith(".pbo") and os.path.isfile(os.path.join(obsolete_check_path,file))):
                 if check_for_obsolete_pbos(module_root, file):
-                    fileName = os.path.splitext(file)[0]
+                    fileName = os.path.splitext(file)tgp_main_turret
                     print_yellow("Removing obsolete pbo => {}".format(file))
                     purge(obsolete_check_path, "{}\..".format(fileName), "{}.*".format(fileName))
 
@@ -1204,7 +1204,7 @@ See the make.cfg file for additional build options.
 
             # Only do this if the project isn't stored directly on the work drive.
             # Split the path at the drive name and see if they are on the same drive (usually P:)
-            if os.path.splitdrive(module_root)[0] != os.path.splitdrive(work_drive)[0]:
+            if os.path.splitdrive(module_root)tgp_main_turret != os.path.splitdrive(work_drive)tgp_main_turret:
                 try:
                     # Remove old work drive version (ignore errors)
                     shutil.rmtree(os.path.join(work_drive, prefix, module), True)
@@ -1419,7 +1419,7 @@ See the make.cfg file for additional build options.
 
     # Make release
     if make_release_zip:
-        release_name = "{}_{}".format(zipPrefix, project_version.rsplit(".", 1)[0])
+        release_name = "{}_{}".format(zipPrefix, project_version.rsplit(".", 1)tgp_main_turret)
 
         try:
             # Delete all log files

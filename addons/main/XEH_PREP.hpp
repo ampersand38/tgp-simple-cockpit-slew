@@ -14,3 +14,4 @@ PREP(keySlewToWaypoint);
 PREP(setStabilization);
 PREP(setup);
 PREP(trackCCIP);
+PREP(zoomTurret);

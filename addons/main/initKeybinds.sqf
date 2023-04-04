@@ -9,7 +9,7 @@
 
 [
     "TGP Simple Cockpit Slew","tgp_main_key_slewHMD", // Shift + T
-    [LSTRING(HMD), LSTRING(HMD_Tooltip)],
+    [LSTRING(HMDLockName), LSTRING(HMDLock_Tooltip)],
     {[] call tgp_main_fnc_keyFLIRSlewToHMD; false}, {},
     [20, [true, false, false]], false
 ] call CBA_fnc_addKeybind;
@@ -35,27 +35,19 @@
     [20, [false, true, true]], false
 ] call CBA_fnc_addKeybind;
 
-/*
 [
-    "TGP Simple Cockpit Slew","tgp_main_key_zoom_inc","FLIR Zoom In", // PLUS
-    {
-        if (tgp_main_isPipHidden) exitWith {false};
-        [1] call tgp_main_fnc_keyZoom;
-        false
-    },{},
+    "TGP Simple Cockpit Slew","tgp_main_key_zoom_inc","str_usract_zoom_in", // PLUS
+    {[1] call tgp_main_fnc_zoomTurret},{},
     [13, [false, false, false]],false
 ] call CBA_fnc_addKeybind;
 
 [
-    "TGP Simple Cockpit Slew","tgp_main_key_zoom_desc","FLIR Zoom Out", // MIN
-    {
-        if (tgp_main_isPipHidden) exitWith {false};
-        [-1] call tgp_main_fnc_keyZoom;
-        false
-    },{},
+    "TGP Simple Cockpit Slew","tgp_main_key_zoom_desc","str_usract_zoom_out", // MIN
+    {[-1] call tgp_main_fnc_zoomTurret},{},
     [12, [false, false, false]],false
 ] call CBA_fnc_addKeybind;
 
+/*
 [
 "TGP Simple Cockpit Slew","tgp_main_key_up","Slew Up", // Control + W
 {if (tgp_main_isPipHidden) exitWith {false}; tgp_main_up = 1; false},{tgp_main_up = 0;},

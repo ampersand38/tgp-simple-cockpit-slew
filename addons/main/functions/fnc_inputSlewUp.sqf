@@ -13,7 +13,7 @@
  * call tgp_main_fnc_inputSlewUp
  */
 
- if (uiNamespace getVariable ["tgp_main_mouseBlocker", false]) then {
+if (uiNamespace getVariable ["tgp_main_mouseBlocker", false]) then {
     (findDisplay 86005) closeDisplay 0;
 };
 tgp_main_slewAim = false;

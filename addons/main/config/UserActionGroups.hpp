@@ -9,7 +9,9 @@ class UserActionGroups
             GVAR(HMD),
             GVAR(Waypoint),
             GVAR(Stabilize),
-            GVAR(CCIP)
+            GVAR(CCIP),
+            QGVAR(ZoomIn),
+            QGVAR(ZoomOut)
         };
 	};
 };

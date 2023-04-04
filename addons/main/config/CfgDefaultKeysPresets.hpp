@@ -6,6 +6,8 @@ class CfgDefaultKeysPresets {
             GVAR(Waypoint)[] = {};
             GVAR(Stabilize)[] = {};
             GVAR(CCIP)[] = {};
+            GVAR(ZoomIn)[] = {};
+            GVAR(ZoomOut)[] = {};
 		};
 	};
 };

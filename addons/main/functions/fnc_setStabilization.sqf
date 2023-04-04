@@ -26,25 +26,32 @@ EXITCHECK
 tgp_main_pilotCameraTarget params ["_isTracking", "", "_oldObject"];
 
 if (_camPosASL isEqualTo []) then {
-    _camPosASL = tgp_main_vehicle modelToWorldVisualWorld (tgp_main_vehicle selectionPosition tgp_main_camPos);
+    private _camPosASL = switch (GVAR(mode)) do {
+        case (MODE_PILOTCAMERA): {
+            tgp_main_vehicle vectorModelToWorldVisual tgp_main_camPos
+        };
+        case (MODE_TURRET): {
+            tgp_main_vehicle vectorModelToWorldVisual (tgp_main_vehicle selectionPosition tgp_main_camPos)
+        };
+    };
 };
 if (_tgtPosASL in [[0, 0, 0], []]) then {
     private _flirDir = switch (GVAR(mode)) do {
         case (MODE_PILOTCAMERA): {
-            tgp_main_vehicle vectorModelToWorldVisual (getPilotCameraDirection tgp_main_vehicle);
+            tgp_main_vehicle vectorModelToWorldVisual (getPilotCameraDirection tgp_main_vehicle)
         };
         case (MODE_TURRET): {
             tgp_main_vehicle vectorModelToWorldVisual (
-                (tgp_main_vehicle selectionPosition tgp_main_gunEnd)
+                (tgp_main_vehicle selectionPosition tgp_main_camPos)
                 vectorFromTo
-                (tgp_main_vehicle selectionPosition tgp_main_gunBeg)
-                vectorMultiply 5000
+                (tgp_main_vehicle selectionPosition tgp_main_camDir)
             )
         };
     };
 
     _tgtPosASL = _camPosASL vectorAdd (_flirDir vectorMultiply 5000);
 };
+systemChat str [_camPosASL, _tgtPosASL, tgp_main_vehicle];
 
 // If _isTracking then untrack
 private _willTrack = false;
@@ -65,7 +72,7 @@ if (_intersections isEqualTo []) then {
     };
 } else {
     (_intersections # 0) params ["_intersectPosASL", "_surfaceNormal", "_intersectObject", "_parentObject"];
-systemChat str [(isNull _intersectObject && {!_isTracking || {_track}})];
+
     if (isNull _intersectObject) then {
         // Terrain
         if (!_isTracking || {_track}) then {
@@ -97,7 +104,7 @@ switch (GVAR(mode)) do {
         tgp_main_vehicle setPilotCameraTarget _target;
     };
     case (MODE_TURRET): {
-        tgp_main_vehicle lockCameraTo [_target, [0], true];
+        tgp_main_vehicle lockCameraTo [_target, tgp_main_turret, true];
     };
 };
 

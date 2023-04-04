@@ -25,7 +25,7 @@ if (getNumber (_turretConfig >> "stabilizedInAxes") != STABILIZEDINAXES_XY) exit
 private _player = call CBA_fnc_currentUnit;
 private _gunner = _vehicle turretUnit [0];
 if (isPlayer _gunner) exitWith {};
-if (isNull _gunner) then {
+if (isNull _gunner && {tgp_main_setting_createGunner}) then {
     private _uavAI = switch (side _player) do {
         case (blufor): { "B_UAV_AI" };
         case (opfor): { "O_UAV_AI" };
