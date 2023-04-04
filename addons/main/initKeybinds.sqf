@@ -47,6 +47,26 @@
     [12, [false, false, false]],false
 ] call CBA_fnc_addKeybind;
 
+[
+    "TGP Simple Cockpit Slew",QGVAR(key_TakeControls),"STR_action_take_control", // Unbound
+    {[] call FUNC(takeControls)},{}
+] call CBA_fnc_addKeybind;
+
+[
+    "TGP Simple Cockpit Slew",QGVAR(key_CollisionLightsOn),"STR_ACTION_COLLISIONLIGHTS_ON", // Unbound
+    {[true] call FUNC(setCollisionLights)},{}
+] call CBA_fnc_addKeybind;
+
+[
+    "TGP Simple Cockpit Slew",QGVAR(key_CollisionLightsOff),"STR_ACTION_COLLISIONLIGHTS_OFF", // Unbound
+    {[false] call FUNC(setCollisionLights)},{}
+] call CBA_fnc_addKeybind;
+
+[
+    "TGP Simple Cockpit Slew",QGVAR(key_CollisionLightsToggle),LSTRING(CollisionLightsToggle), // Unbound
+    {[] call FUNC(setCollisionLights)},{}
+] call CBA_fnc_addKeybind;
+
 /*
 [
 "TGP Simple Cockpit Slew","tgp_main_key_up","Slew Up", // Control + W

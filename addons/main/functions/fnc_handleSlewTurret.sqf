@@ -21,7 +21,7 @@ if (!tgp_main_slewAim) exitWith {
     tgp_main_vehicle setAutonomous GVAR(isAutonomous);
 
     //[tgp_main_vehicle lockedCameraTo tgp_main_turret, [], true] call tgp_main_fnc_setStabilization;
-    tgp_main_vehicle lockCameraTo [tgp_main_vehicle lockedCameraTo tgp_main_turret, tgp_main_turret];
+    //tgp_main_vehicle lockCameraTo [tgp_main_cameraTarget, tgp_main_turret, true];
 };
 
 private _inputX = inputAction "AimLeft" - inputAction "AimRight";
@@ -62,4 +62,5 @@ tgp_main_elevation = _elevation;
 private _dir = [5000, -_azimuth, _elevation] call CBA_fnc_polar2vect;
 
 _pos = tgp_main_vehicle modelToWorldVisualWorld (_camPos vectorAdd _dir);
+tgp_main_cameraTarget = [true, _pos, objNull];
 tgp_main_vehicle lockCameraTo [_pos, tgp_main_turret, true];

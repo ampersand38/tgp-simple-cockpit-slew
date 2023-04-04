@@ -56,10 +56,10 @@ if (_pilotCameraTarget # 0) then {
             _target = _position1;
         };
         _vehicle setPilotCameraTarget _target;
-        tgp_main_pilotCameraTarget = getPilotCameraTarget _vehicle;
+        tgp_main_cameraTarget = getPilotCameraTarget _vehicle;
     } else {
         (_intersections # 0) params ["_intersectPosASL", "_surfaceNormal", "_intersectObject", "_parentObject"];
         _vehicle setPilotCameraTarget _intersectPosASL;
-        tgp_main_pilotCameraTarget = getPilotCameraTarget _vehicle;
+        tgp_main_cameraTarget = getPilotCameraTarget _vehicle;
     };
 };

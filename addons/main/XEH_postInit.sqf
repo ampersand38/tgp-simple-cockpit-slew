@@ -1,8 +1,6 @@
 #include "script_component.hpp"
 
 if (hasInterface) then {
-    #include "initKeybinds.sqf"
-
     addUserActionEventHandler ["gunElevUp", "Activate", { tgp_main_ccipOffset = tgp_main_ccipOffset + 1; }];
     addUserActionEventHandler ["gunElevDown", "Activate", { tgp_main_ccipOffset = tgp_main_ccipOffset - 1; }];
 

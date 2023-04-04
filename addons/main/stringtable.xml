@@ -34,5 +34,8 @@
         <Key ID="STR_TGP_Main_CCIP_Tooltip">
             <English>Pilot Camera will (roughly) track the bomb CCIP until a bomb is dropped.</English>
         </Key>
+        <Key ID="STR_TGP_Main_CollisionLightsToggle">
+            <English>Collision Lights Toggle</English>
+        </Key>
     </Package>
 </Project>

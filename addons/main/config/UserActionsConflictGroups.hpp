@@ -7,7 +7,11 @@ class UserActionsConflictGroups {
             QGVAR(Stabilize),
             QGVAR(CCIP),
             QGVAR(ZoomIn),
-            QGVAR(ZoomOut)
+            QGVAR(ZoomOut),
+            QGVAR(TakeControls),
+            QGVAR(CollisionLightsOn),
+            QGVAR(CollisionLightsOff),
+            QGVAR(CollisionLightsToggle)
         };
     };
 

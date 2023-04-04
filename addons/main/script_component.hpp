@@ -22,4 +22,4 @@ tgp_main_vehicle = objNull; \
 tgp_main_isSlewing = false; \
 tgp_main_isTrackingCCIP = false; \
 GVAR(mode) = 0; \
-tgp_main_pilotCameraTarget = [false, [0, 0, 0], objNull];
+tgp_main_cameraTarget = [false, [0, 0, 0], objNull];

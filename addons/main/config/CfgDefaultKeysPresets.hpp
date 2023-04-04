@@ -8,6 +8,10 @@ class CfgDefaultKeysPresets {
             GVAR(CCIP)[] = {};
             GVAR(ZoomIn)[] = {};
             GVAR(ZoomOut)[] = {};
+            GVAR(TakeControls)[] = {};
+            GVAR(CollisionLightsOn)[] = {};
+            GVAR(CollisionLightsOff)[] = {};
+            GVAR(CollisionLightsToggle)[] = {};
 		};
 	};
 };

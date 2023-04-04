@@ -28,6 +28,7 @@
     }
 ] call CBA_fnc_addSetting;
 
+/*
 [
     "tgp_main_setting_createGunner", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "CHECKBOX", // setting type
@@ -37,7 +38,6 @@
     nil // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
 ] call CBA_fnc_addSetting;
 
-/*
 [
     "tgp_main_setting_KeySlewSpeed", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
     "SLIDER", // setting type

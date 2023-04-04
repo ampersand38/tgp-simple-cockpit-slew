@@ -23,15 +23,15 @@ params [
 
 EXITCHECK
 
-tgp_main_pilotCameraTarget params ["_isTracking", "", "_oldObject"];
+tgp_main_cameraTarget params ["_isTracking", "", "_oldObject"];
 
 if (_camPosASL isEqualTo []) then {
     private _camPosASL = switch (GVAR(mode)) do {
         case (MODE_PILOTCAMERA): {
-            tgp_main_vehicle vectorModelToWorldVisual tgp_main_camPos
+            _camPosASL = tgp_main_vehicle modelToWorldVisualWorld tgp_main_camPos
         };
         case (MODE_TURRET): {
-            tgp_main_vehicle vectorModelToWorldVisual (tgp_main_vehicle selectionPosition tgp_main_camPos)
+            _camPosASL = tgp_main_vehicle modelToWorldVisualWorld (tgp_main_vehicle selectionPosition tgp_main_camPos)
         };
     };
 };
@@ -41,17 +41,11 @@ if (_tgtPosASL in [[0, 0, 0], []]) then {
             tgp_main_vehicle vectorModelToWorldVisual (getPilotCameraDirection tgp_main_vehicle)
         };
         case (MODE_TURRET): {
-            tgp_main_vehicle vectorModelToWorldVisual (
-                (tgp_main_vehicle selectionPosition tgp_main_camPos)
-                vectorFromTo
-                (tgp_main_vehicle selectionPosition tgp_main_camDir)
-            )
+            _camPosASL vectorFromTo (tgp_main_vehicle modelToWorldVisualWorld (tgp_main_vehicle selectionPosition tgp_main_camDir))
         };
     };
-
     _tgtPosASL = _camPosASL vectorAdd (_flirDir vectorMultiply 5000);
 };
-systemChat str [_camPosASL, _tgtPosASL, tgp_main_vehicle];
 
 // If _isTracking then untrack
 private _willTrack = false;
@@ -68,6 +62,7 @@ if (_intersections isEqualTo []) then {
         _target = terrainIntersectAtASL [_camPosASL, _tgtPosASL];
         if (_target isEqualTo [0, 0, 0]) then {
             _target = _tgtPosASL;
+            _newPosASL = _tgtPosASL;
         };
     };
 } else {
@@ -96,7 +91,7 @@ if (_intersections isEqualTo []) then {
     };
 };
 
-tgp_main_pilotCameraTarget = [_willTrack, _newPosASL, _newObject];
+tgp_main_cameraTarget = [_willTrack, _newPosASL, _newObject];
 
 switch (GVAR(mode)) do {
     case (MODE_PILOTCAMERA): {

@@ -17,7 +17,8 @@ EXITCHECK
 
 [
     AGLToASL positionCameraToWorld [0, 0, 5000],
-    AGLToASL positionCameraToWorld [0, 0, 0]
+    AGLToASL positionCameraToWorld [0, 0, 0],
+    true
 ] call tgp_main_fnc_setStabilization;
 
 true

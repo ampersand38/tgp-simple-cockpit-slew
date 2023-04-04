@@ -5,13 +5,17 @@ class UserActionGroups
 		name = CSTRING(Slew); // Display name of your category.
 		isAddon = 1;
 		group[] = { // List of all actions inside this category.
-            GVAR(SlewHold),
-            GVAR(HMD),
-            GVAR(Waypoint),
-            GVAR(Stabilize),
-            GVAR(CCIP),
+            QGVAR(SlewHold),
+            QGVAR(HMD),
+            QGVAR(Waypoint),
+            QGVAR(Stabilize),
+            QGVAR(CCIP),
             QGVAR(ZoomIn),
-            QGVAR(ZoomOut)
+            QGVAR(ZoomOut),
+            QGVAR(TakeControls),
+            QGVAR(CollisionLightsOn),
+            QGVAR(CollisionLightsOff),
+            QGVAR(CollisionLightsToggle)
         };
 	};
 };

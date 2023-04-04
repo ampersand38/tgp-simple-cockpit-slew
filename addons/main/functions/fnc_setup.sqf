@@ -43,7 +43,7 @@ if ([_vehicle] call FUNC(isSlewable)) exitWith {
     };
 
     private _lockedTo = _vehicle lockedCameraTo tgp_main_turret;
-    tgp_main_pilotCameraTarget = if (_lockedTo isEqualTo objNull) then {
+    tgp_main_cameraTarget = if (_lockedTo isEqualTo objNull) then {
         [false, [0, 0, 0], objNull]
     } else {
         if (_lockedTo isEqualType objNull) then {
@@ -76,7 +76,7 @@ tgp_main_minElev = getNumber (_pilotCameraConfig >> "minElev") / 180 * pi;
 tgp_main_maxElev = getNumber (_pilotCameraConfig >> "maxElev") / 180 * pi;
 
 tgp_main_camPos = getPilotCameraPosition _vehicle;
-tgp_main_pilotCameraTarget = getPilotCameraTarget _vehicle;
+tgp_main_cameraTarget = getPilotCameraTarget _vehicle;
 tgp_main_turret = [-1];
 tgp_main_vehicle = _vehicle;
 tgp_main_FOV = selectMax (("true" configClasses (_pilotCameraConfig >> "OpticsIn")) apply {

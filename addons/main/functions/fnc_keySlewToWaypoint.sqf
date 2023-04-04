@@ -35,9 +35,9 @@ private _posASL = (call CBA_fnc_currentUnit) call {
 };
 
 if (_posASL isEqualTo objNull) then {
-    tgp_main_pilotCameraTarget = [false, [0, 0, 0], objNull];
+    tgp_main_cameraTarget = [false, [0, 0, 0], objNull];
 } else {
-    tgp_main_pilotCameraTarget = [true, _posASL, objNull];
+    tgp_main_cameraTarget = [true, _posASL, objNull];
 };
 
 switch (GVAR(mode)) do {

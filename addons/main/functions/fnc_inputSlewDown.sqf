@@ -39,6 +39,6 @@ switch (GVAR(mode)) do {
         if (!GVAR(isAutonomous)) then {tgp_main_vehicle setAutonomous true;};
         [FUNC(handleSlewTurret), 0] call CBA_fnc_addPerFrameHandler;
     };
-};
+}; // switch
 
 false
