@@ -35,6 +35,7 @@ if (_camPosASL isEqualTo []) then {
         };
     };
 };
+
 if (_tgtPosASL in [[0, 0, 0], []]) then {
     private _flirDir = switch (GVAR(mode)) do {
         case (MODE_PILOTCAMERA): {
@@ -51,7 +52,6 @@ if (_tgtPosASL in [[0, 0, 0], []]) then {
 private _willTrack = false;
 private _newObject = objNull;
 private _newPosASL = [0, 0, 0];
-private _target = objNull;
 private _intersections = lineIntersectsSurfaces [_camPosASL, _tgtPosASL, tgp_main_vehicle];
 
 if (_intersections isEqualTo []) then {
@@ -59,9 +59,8 @@ if (_intersections isEqualTo []) then {
     if (!_isTracking || {_track}) then {
         _willTrack = true;
         // Check terrain
-        _target = terrainIntersectAtASL [_camPosASL, _tgtPosASL];
-        if (_target isEqualTo [0, 0, 0]) then {
-            _target = _tgtPosASL;
+        _newPosASL = terrainIntersectAtASL [_camPosASL, _tgtPosASL];
+        if (_newPosASL isEqualTo [0, 0, 0]) then {
             _newPosASL = _tgtPosASL;
         };
     };
@@ -72,35 +71,19 @@ if (_intersections isEqualTo []) then {
         // Terrain
         if (!_isTracking || {_track}) then {
             _willTrack = true;
-            _target = _intersectPosASL;
             _newPosASL = _intersectPosASL;
         };
     } else {
         // Object
-        _newObject = _intersectObject;
         // If re-track on same object, untrack
-        if (_oldObject != _intersectObject) then {
-            _willTrack = true;
-            if (speed _intersectObject > 0) then {
-                _target = _intersectObject; // Moving vehicle
-            } else {
-                _target = _intersectPosASL; // Stationary target
-                _newPosASL = _intersectPosASL; // Stationary target
-            };
-        };
+        if (_oldObject == _intersectObject) then { break; };
+        // If new object
+        _willTrack = true;
+        _newObject = _intersectObject;
+        _newPosASL = _intersectPosASL;
     };
 };
 
-tgp_main_cameraTarget = [_willTrack, _newPosASL, _newObject];
-
-switch (GVAR(mode)) do {
-    case (MODE_PILOTCAMERA): {
-        [{(_this # 0) setPilotCameraTarget (_this # 1)}, [tgp_main_vehicle, _target]] call CBA_fnc_execNextFrame;
-        tgp_main_vehicle setPilotCameraTarget _target;
-    };
-    case (MODE_TURRET): {
-        tgp_main_vehicle lockCameraTo [_target, tgp_main_turret, true];
-    };
-};
+[_willTrack, _newPosASL, _newObject] call FUNC(lockCamera);
 
 false

@@ -14,14 +14,9 @@
  */
 
 EXITCHECK
+[] call tgp_main_fnc_setup;
 
 tgp_main_slewAim = true;
-
-RESET_VARIABLES
-
-GVAR(mode) = call FUNC(setup);
-
-if (GVAR(mode) == 0) exitWith {false};
 
 if (tgp_main_setting_AimSlewBlockMouse && {isNil "ace_interact_menu_keyDown" || {!ace_interact_menu_keyDown}}) then {
     if (!(uiNamespace getVariable ["tgp_main_mouseBlocker", false])) then {

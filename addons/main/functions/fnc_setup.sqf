@@ -27,6 +27,10 @@ if (
 if (_vehicle == _unit) exitWith {MODE_FAILED};
 
 if ([_vehicle] call FUNC(isSlewable)) exitWith {
+    if (unitIsUAV _vehicle && {!isAutonomous _vehicle}) then {
+        _vehicle setAutonomous true;
+    };
+
     private _turretConfig = [_vehicle, tgp_main_turret] call CBA_fnc_getTurret;
     tgp_main_minTurn = getNumber (_turretConfig >> "minTurn");
     tgp_main_maxTurn = getNumber (_turretConfig >> "maxTurn");
@@ -43,7 +47,7 @@ if ([_vehicle] call FUNC(isSlewable)) exitWith {
     };
 
     private _lockedTo = _vehicle lockedCameraTo tgp_main_turret;
-    tgp_main_cameraTarget = if (_lockedTo isEqualTo objNull) then {
+    tgp_main_cameraTarget = if (isNil "_lockedTo") then {
         [false, [0, 0, 0], objNull]
     } else {
         if (_lockedTo isEqualType objNull) then {
@@ -54,9 +58,9 @@ if ([_vehicle] call FUNC(isSlewable)) exitWith {
     };
     tgp_main_vehicle = _vehicle;
     tgp_main_turret = [0];
-    GVAR(isAutonomous) = isAutonomous tgp_main_vehicle;
     tgp_main_FOV = getNumber (_turretConfig >> "ViewGunner" >> "initFov");
 
+    GVAR(mode) = MODE_TURRET;
     MODE_TURRET
 };
 
@@ -83,4 +87,5 @@ tgp_main_FOV = selectMax (("true" configClasses (_pilotCameraConfig >> "OpticsIn
     call compile ((_x >> "initFOV") call BIS_fnc_getCfgData)
 });
 
+GVAR(mode) = MODE_PILOTCAMERA;
 MODE_PILOTCAMERA

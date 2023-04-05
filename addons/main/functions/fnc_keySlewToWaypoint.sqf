@@ -15,7 +15,7 @@
 
 EXITCHECK
 
-private _posASL = (call CBA_fnc_currentUnit) call {
+private _target = (call CBA_fnc_currentUnit) call {
     if (customWaypointPosition isNotEqualTo []) exitWith {
         AGLToASL customWaypointPosition
     };
@@ -34,19 +34,12 @@ private _posASL = (call CBA_fnc_currentUnit) call {
     objNull
 };
 
-if (_posASL isEqualTo objNull) then {
-    tgp_main_cameraTarget = [false, [0, 0, 0], objNull];
+_target = if (_target isEqualTo objNull) then {
+    [false, [0, 0, 0], objNull];
 } else {
-    tgp_main_cameraTarget = [true, _posASL, objNull];
+    [true, _target, objNull];
 };
 
-switch (GVAR(mode)) do {
-    case (MODE_PILOTCAMERA): {
-        tgp_main_vehicle setPilotCameraTarget _posASL;
-    };
-    case (MODE_TURRET): {
-        tgp_main_vehicle lockCameraTo [_posASL, tgp_main_turret, true];
-    };
-};
+_target call FUNC(lockCamera);
 
 false

@@ -8,7 +8,7 @@ class CfgUserActions {
         //analogChangeThreshold = 0.1; // Minimum change required to trigger the onAnalog EH (default: 0.01).
     };
     class GVAR(HMD) { // This class name is used for internal representation and also for the inputAction command.
-        displayName = CSTRING(HMDLock_Tooltip);
+        displayName = CSTRING(HMDLock);
         tooltip = CSTRING(HMDLock_Tooltip);
         onActivate = QUOTE([] call FUNC(keyFLIRSlewToHMD));		// _this is always true.
     };

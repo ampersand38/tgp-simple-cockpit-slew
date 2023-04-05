@@ -9,7 +9,7 @@
 
 [
     "TGP Simple Cockpit Slew","tgp_main_key_slewHMD", // Shift + T
-    [LSTRING(HMDLockName), LSTRING(HMDLock_Tooltip)],
+    [LSTRING(HMDLock), LSTRING(HMDLock_Tooltip)],
     {[] call tgp_main_fnc_keyFLIRSlewToHMD; false}, {},
     [20, [true, false, false]], false
 ] call CBA_fnc_addKeybind;

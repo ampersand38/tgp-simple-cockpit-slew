@@ -18,11 +18,11 @@ if (!tgp_main_slewAim) exitWith {
     [_pfID] call CBA_fnc_removePerFrameHandler;
     tgp_main_azimuth = nil;
     tgp_main_elevation = nil;
-    tgp_main_vehicle setAutonomous GVAR(isAutonomous);
 
-    //[tgp_main_vehicle lockedCameraTo tgp_main_turret, [], true] call tgp_main_fnc_setStabilization;
-    //tgp_main_vehicle lockCameraTo [tgp_main_cameraTarget, tgp_main_turret, true];
+    [tgp_main_vehicle lockedCameraTo tgp_main_turret, [], true] call tgp_main_fnc_setStabilization;
 };
+
+if (tgp_main_setting_CenterMouse) then {setMousePosition [0.5, 0.5]};
 
 private _inputX = inputAction "AimLeft" - inputAction "AimRight";
 private _inputY = inputAction "AimUp" - inputAction "AimDown";

@@ -15,6 +15,7 @@
 
 params ["", "_pfID"];
 if (!tgp_main_slewAim) exitWith {[_pfID] call CBA_fnc_removePerFrameHandler;};
+if (tgp_main_setting_CenterMouse) then {setMousePosition [0.5, 0.5]};
 private _vehicle = tgp_main_vehicle;
 
 private _inputX = inputAction "AimRight" - inputAction "AimLeft";

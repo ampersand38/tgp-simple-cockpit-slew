@@ -10,8 +10,8 @@
         <Key ID="STR_TGP_Main_SlewHold_Tooltip">
             <English>Hold this key and use mouse or 'Aim <Up|Down|Left|Right>' input to slew the active camera.</English>
         </Key>
-        <Key ID="STR_TGP_Main_HMDLockName">
-            <English>Lock to HMD.</English>
+        <Key ID="STR_TGP_Main_HMDLock">
+            <English>Lock to HMD</English>
         </Key>
         <Key ID="STR_TGP_Main_HMDLock_Tooltip">
             <English>Lock the active camera to the current aim point of the HMD.</English>
