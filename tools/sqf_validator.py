@@ -21,7 +21,7 @@ def check_sqf_syntax(filepath):
     bad_count_file = 0
     def pushClosing(t):
         closingStack.append(closing.expr)
-        closing << Literal( closingFor[ttgp_main_turret] )
+        closing << Literal( closingFor[t[0]] )
 
     def popClosing():
         closing << closingStack.pop()
@@ -112,7 +112,7 @@ def check_sqf_syntax(filepath):
                         elif (c== '\t'):
                             print("ERROR: Tab detected at {0} Line number: {1}".format(filepath,lineNumber))
                             bad_count_file += 1
-                            
+
                         if (checkForSemiColumn):
                             if (c not in [' ', '\t', '\n', '/']): # keep reading until no white space or comments
                                 checkForSemiColumn = False

@@ -84,7 +84,7 @@ def main(): # pylint: disable=missing-function-docstring
         path = os.path.join(addonspath, name)
         if not os.path.isdir(path):
             continue
-        if nametgp_main_turret == ".":
+        if name[0] == ".":
             continue
         if not check_for_changes(addonspath, name):
             skipped += 1
