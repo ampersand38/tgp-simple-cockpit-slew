@@ -37,5 +37,8 @@
         <Key ID="STR_TGP_Main_CollisionLightsToggle">
             <English>Collision Lights Toggle</English>
         </Key>
+        <Key ID="STR_TGP_Main_PlsWork">
+            <English>Lock to HMD</English>
+        </Key>
     </Package>
 </Project>
