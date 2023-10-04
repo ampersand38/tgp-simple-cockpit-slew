@@ -1,177 +1,177 @@
-2023-10-03T22:00:54.646277Z TRACE ThreadId(01) version: 1.8.0
-2023-10-03T22:00:54.646379Z TRACE ThreadId(01) platform: windows
-2023-10-03T22:00:54.647287Z TRACE ThreadId(01) checking for version macro in "addons/main/script_version.hpp"
-2023-10-03T22:00:54.653693Z  INFO ThreadId(01) Config loaded for TGP Simple Cockpit Slew 2.0.0.0-13308b85
-2023-10-03T22:00:54.653719Z TRACE ThreadId(01) using temporary folder: "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit"
-2023-10-03T22:00:54.653730Z TRACE ThreadId(01) using project folder: "E:\\Documents\\GitHub\\tgp-slew-cockpit"
-2023-10-03T22:00:54.653737Z TRACE ThreadId(01) using out folder: "E:\\Documents\\GitHub\\tgp-slew-cockpit\\.hemttout"
-2023-10-03T22:00:54.653924Z TRACE ThreadId(01) using build folder: "E:\\Documents\\GitHub\\tgp-slew-cockpit\\.hemttout\\build"
-2023-10-03T22:00:54.656427Z TRACE ThreadId(01) vfs overlay at root: "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit\\output"
-2023-10-03T22:00:54.656449Z TRACE ThreadId(01) vfs root: "E:\\Documents\\GitHub\\tgp-slew-cockpit"
-2023-10-03T22:00:54.657440Z  INFO ThreadId(01) Creating `build` version
-2023-10-03T22:00:54.657461Z TRACE ThreadId(01) phase: init (start)
-2023-10-03T22:00:54.671802Z TRACE ThreadId(01) link "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit\\source\\z\\tgp\\addons\\kits" => "E:\\Documents\\GitHub\\tgp-slew-cockpit\\addons\\kits"
-2023-10-03T22:00:54.689260Z TRACE ThreadId(01) link "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit\\source\\z\\tgp\\addons\\main" => "E:\\Documents\\GitHub\\tgp-slew-cockpit\\addons\\main"
-2023-10-03T22:00:54.704977Z TRACE ThreadId(01) link "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit\\source\\a3\\ui_f" => "E:\\Documents\\GitHub\\tgp-slew-cockpit\\include\\a3\\ui_f"
-2023-10-03T22:00:54.720126Z TRACE ThreadId(01) link "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit\\source\\x\\cba" => "E:\\Documents\\GitHub\\tgp-slew-cockpit\\include\\x\\cba"
-2023-10-03T22:00:54.734118Z TRACE ThreadId(01) phase: init (sqf) (start)
-2023-10-03T22:00:54.734132Z TRACE ThreadId(01) phase: init (sqf) (done)
-2023-10-03T22:00:54.734137Z TRACE ThreadId(01) phase: init (Rapifier) (start)
-2023-10-03T22:00:54.734141Z TRACE ThreadId(01) phase: init (Rapifier) (done)
-2023-10-03T22:00:54.734148Z TRACE ThreadId(01) phase: init (Binarize) (start)
-2023-10-03T22:00:54.734280Z TRACE ThreadId(01) phase: init (Binarize) (done)
-2023-10-03T22:00:54.734293Z TRACE ThreadId(01) phase: init (Hooks) (start)
-2023-10-03T22:00:54.734368Z TRACE ThreadId(01) no hooks folder
-2023-10-03T22:00:54.734375Z TRACE ThreadId(01) phase: init (Hooks) (done)
-2023-10-03T22:00:54.734381Z TRACE ThreadId(01) phase: init (ArmaScriptCompiler) (start)
-2023-10-03T22:00:54.734388Z TRACE ThreadId(01) using asc folder at "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit\\asc"
-2023-10-03T22:00:54.734618Z TRACE ThreadId(01) phase: init (ArmaScriptCompiler) (done)
-2023-10-03T22:00:54.734628Z TRACE ThreadId(01) phase: init (Files) (start)
-2023-10-03T22:00:54.734632Z TRACE ThreadId(01) phase: init (Files) (done)
-2023-10-03T22:00:54.734636Z TRACE ThreadId(01) phase: init (done)
-2023-10-03T22:00:54.734641Z TRACE ThreadId(01) phase: check (start)
-2023-10-03T22:00:54.734645Z TRACE ThreadId(01) phase: check (sqf) (start)
-2023-10-03T22:00:54.734650Z TRACE ThreadId(01) phase: check (sqf) (done)
-2023-10-03T22:00:54.734653Z TRACE ThreadId(01) phase: check (Rapifier) (start)
-2023-10-03T22:00:54.734657Z TRACE ThreadId(01) phase: check (Rapifier) (done)
-2023-10-03T22:00:54.734660Z TRACE ThreadId(01) phase: check (Binarize) (start)
-2023-10-03T22:00:54.734663Z TRACE ThreadId(01) phase: check (Binarize) (done)
-2023-10-03T22:00:54.734667Z TRACE ThreadId(01) phase: check (Hooks) (start)
-2023-10-03T22:00:54.734670Z TRACE ThreadId(01) phase: check (Hooks) (done)
-2023-10-03T22:00:54.734673Z TRACE ThreadId(01) phase: check (ArmaScriptCompiler) (start)
-2023-10-03T22:00:54.734707Z TRACE ThreadId(01) phase: check (ArmaScriptCompiler) (done)
-2023-10-03T22:00:54.734713Z TRACE ThreadId(01) phase: check (Files) (start)
-2023-10-03T22:00:54.734717Z TRACE ThreadId(01) phase: check (Files) (done)
-2023-10-03T22:00:54.734720Z TRACE ThreadId(01) phase: check (done)
-2023-10-03T22:00:54.734726Z TRACE ThreadId(01) phase: pre_build (start)
-2023-10-03T22:00:54.734730Z TRACE ThreadId(01) phase: pre_build (sqf) (start)
-2023-10-03T22:00:54.734733Z TRACE ThreadId(01) phase: pre_build (sqf) (done)
-2023-10-03T22:00:54.734738Z TRACE ThreadId(01) phase: pre_build (Rapifier) (start)
-2023-10-03T22:00:54.736405Z DEBUG ThreadId(03) rapifying /addons/main/config.cpp
-2023-10-03T22:00:54.738636Z DEBUG ThreadId(04) rapifying /addons/kits/config.cpp
-2023-10-03T22:00:54.821052Z  INFO ThreadId(01) Rapified 2 addon configs
-2023-10-03T22:00:54.821077Z TRACE ThreadId(01) phase: pre_build (Rapifier) (done)
-2023-10-03T22:00:54.821085Z TRACE ThreadId(01) phase: pre_build (Binarize) (start)
-2023-10-03T22:00:54.845529Z DEBUG ThreadId(03) binarizing tgp_pylon_single.p3d
-2023-10-03T22:00:54.845529Z DEBUG ThreadId(02) binarizing tgp_kit.p3d
-2023-10-03T22:00:54.846068Z TRACE ThreadId(03) "E:\\Steam Library\\steamapps\\common\\Arma 3 Tools\\Binarize\\binarize_x64.exe" "-norecurse" "-always" "-silent" "-maxProcesses=0" "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit\\source\\z\\tgp\\addons\\kits\\data\\" "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit\\output\\addons/kits/data" "tgp_pylon_single.p3d"
-2023-10-03T22:00:54.846094Z TRACE ThreadId(02) "E:\\Steam Library\\steamapps\\common\\Arma 3 Tools\\Binarize\\binarize_x64.exe" "-norecurse" "-always" "-silent" "-maxProcesses=0" "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit\\source\\z\\tgp\\addons\\kits\\data\\" "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit\\output\\addons/kits/data" "tgp_kit.p3d"
-2023-10-03T22:00:55.020183Z  INFO ThreadId(01) Binarized 2 files
-2023-10-03T22:00:55.020203Z TRACE ThreadId(01) phase: pre_build (Binarize) (done)
-2023-10-03T22:00:55.020209Z TRACE ThreadId(01) phase: pre_build (Hooks) (start)
-2023-10-03T22:00:55.020220Z TRACE ThreadId(01) phase: pre_build (Hooks) (done)
-2023-10-03T22:00:55.020225Z TRACE ThreadId(01) phase: pre_build (ArmaScriptCompiler) (start)
-2023-10-03T22:00:55.020450Z TRACE ThreadId(01) unpacking "asc.exe" to "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit\\asc\\asc.exe"
-2023-10-03T22:00:55.419233Z DEBUG ThreadId(01) ASC Preprocess took 394
-2023-10-03T22:00:55.508049Z DEBUG ThreadId(01) ASC took 88
-2023-10-03T22:00:55.528713Z  INFO ThreadId(01) Compiled 26 sqf files
-2023-10-03T22:00:55.529742Z TRACE ThreadId(01) phase: pre_build (ArmaScriptCompiler) (done)
-2023-10-03T22:00:55.529764Z TRACE ThreadId(01) phase: pre_build (Files) (start)
-2023-10-03T22:00:55.529772Z TRACE ThreadId(01) phase: pre_build (Files) (done)
-2023-10-03T22:00:55.529780Z TRACE ThreadId(01) phase: pre_build (done)
-2023-10-03T22:00:55.529786Z TRACE ThreadId(01) phase: build (start)
-2023-10-03T22:00:55.533033Z DEBUG ThreadId(03) building "addons/main" => "E:\\Documents\\GitHub\\tgp-slew-cockpit\\.hemttout\\build\\addons\\tgp_main.pbo"
-2023-10-03T22:00:55.533087Z DEBUG ThreadId(02) building "addons/kits" => "E:\\Documents\\GitHub\\tgp-slew-cockpit\\.hemttout\\build\\addons\\tgp_kits.pbo"
-2023-10-03T22:00:55.533532Z TRACE ThreadId(02) adding file "XEH_preStart.sqfc"
-2023-10-03T22:00:55.533941Z TRACE ThreadId(03) adding file "stringtable.xml"
-2023-10-03T22:00:55.534004Z TRACE ThreadId(02) adding file "XEH_preInit_server.sqf"
-2023-10-03T22:00:55.534240Z TRACE ThreadId(02) adding file "XEH_preInit.sqfc"
-2023-10-03T22:00:55.534293Z TRACE ThreadId(03) adding file "XEH_postInit.sqfc"
-2023-10-03T22:00:55.534704Z TRACE ThreadId(02) adding file "CfgVehicles.hpp"
-2023-10-03T22:00:55.534804Z TRACE ThreadId(03) adding file "CfgEventHandlers.hpp"
-2023-10-03T22:00:55.535069Z TRACE ThreadId(03) adding file "XEH_preStart.sqfc"
-2023-10-03T22:00:55.535116Z TRACE ThreadId(03) adding file "XEH_preInit.sqfc"
-2023-10-03T22:00:55.535383Z TRACE ThreadId(02) adding file "XEH_preInit.sqf"
-2023-10-03T22:00:55.535628Z TRACE ThreadId(03) adding file "XEH_preStart.sqf"
-2023-10-03T22:00:55.536334Z TRACE ThreadId(03) adding file "XEH_preInit.sqf"
-2023-10-03T22:00:55.536491Z TRACE ThreadId(02) adding file "config.bin"
-2023-10-03T22:00:55.536952Z TRACE ThreadId(02) adding file "CfgEventHandlers.hpp"
-2023-10-03T22:00:55.537034Z TRACE ThreadId(03) adding file "script_mod.hpp"
-2023-10-03T22:00:55.537748Z TRACE ThreadId(03) adding file "script_version.hpp"
-2023-10-03T22:00:55.537758Z TRACE ThreadId(02) adding file "script_component.hpp"
-2023-10-03T22:00:55.538453Z TRACE ThreadId(02) adding file "XEH_preStart.sqf"
-2023-10-03T22:00:55.538472Z TRACE ThreadId(03) adding file "initKeybinds.sqf"
-2023-10-03T22:00:55.539148Z TRACE ThreadId(02) adding file "CfgEditorSubcategories.hpp"
-2023-10-03T22:00:55.539226Z TRACE ThreadId(03) adding file "script_component.hpp"
-2023-10-03T22:00:55.539487Z TRACE ThreadId(03) adding file "initSettings.sqfc"
-2023-10-03T22:00:55.539803Z TRACE ThreadId(02) adding file "XEH_PREP.hpp"
-2023-10-03T22:00:55.540396Z TRACE ThreadId(03) adding file "script_macros.hpp"
-2023-10-03T22:00:55.540501Z TRACE ThreadId(02) adding file "XEH_postInit.sqf"
-2023-10-03T22:00:55.541076Z TRACE ThreadId(03) adding file "XEH_PREP.hpp"
-2023-10-03T22:00:55.541190Z TRACE ThreadId(02) adding file "XEH_postInit_client.sqf"
-2023-10-03T22:00:55.541338Z TRACE ThreadId(03) adding file "config.bin"
-2023-10-03T22:00:55.542309Z TRACE ThreadId(03) adding file "initSettings.sqf"
-2023-10-03T22:00:55.542646Z TRACE ThreadId(02) adding file "functions\\script_component.hpp"
-2023-10-03T22:00:55.543341Z TRACE ThreadId(02) adding file "functions\\fnc_printAddonSetupReminder.sqf"
-2023-10-03T22:00:55.543582Z TRACE ThreadId(02) adding file "functions\\fnc_printAddonSetupReminder.sqfc"
-2023-10-03T22:00:55.543982Z TRACE ThreadId(03) adding file "README.md"
-2023-10-03T22:00:55.544497Z TRACE ThreadId(02) adding file "data\\model.cfg"
-2023-10-03T22:00:55.544669Z TRACE ThreadId(03) adding file "XEH_postInit.sqf"
-2023-10-03T22:00:55.544928Z TRACE ThreadId(02) adding file "data\\tgp_kit.p3d"
-2023-10-03T22:00:55.545222Z TRACE ThreadId(02) adding file "data\\tgp_pylon_single.p3d"
-2023-10-03T22:00:55.545323Z TRACE ThreadId(03) adding file "functions\\fnc_handleZoom.sqfc"
-2023-10-03T22:00:55.545357Z TRACE ThreadId(03) adding file "functions\\fnc_ccip_nodrag.sqfc"
-2023-10-03T22:00:55.545821Z TRACE ThreadId(03) adding file "functions\\fnc_handlePanel.sqf"
-2023-10-03T22:00:55.546514Z TRACE ThreadId(03) adding file "functions\\fnc_parseCameraTarget.sqf"
-2023-10-03T22:00:55.547209Z TRACE ThreadId(03) adding file "functions\\fnc_handleZoom.sqf"
-2023-10-03T22:00:55.547890Z TRACE ThreadId(03) adding file "functions\\fnc_setStabilization.sqf"
-2023-10-03T22:00:55.548528Z TRACE ThreadId(03) adding file "functions\\fnc_zoomTurret.sqf"
-2023-10-03T22:00:55.549181Z TRACE ThreadId(03) adding file "functions\\fnc_ccip_nodrag.sqf"
-2023-10-03T22:00:55.549416Z TRACE ThreadId(03) adding file "functions\\fnc_parseCameraTarget.sqfc"
-2023-10-03T22:00:55.549448Z TRACE ThreadId(03) adding file "functions\\fnc_setCollisionLights.sqfc"
-2023-10-03T22:00:55.549476Z TRACE ThreadId(03) adding file "functions\\fnc_keyFLIRSlewToHMD.sqfc"
-2023-10-03T22:00:55.549958Z TRACE ThreadId(03) adding file "functions\\fnc_lockCamera.sqf"
-2023-10-03T22:00:55.550644Z TRACE ThreadId(03) adding file "functions\\fnc_inputSlewDown.sqf"
-2023-10-03T22:00:55.551320Z TRACE ThreadId(03) adding file "functions\\script_component.hpp"
-2023-10-03T22:00:55.551567Z TRACE ThreadId(03) adding file "functions\\fnc_setStabilization.sqfc"
-2023-10-03T22:00:55.552037Z TRACE ThreadId(03) adding file "functions\\fnc_handleSlewTurret.sqf"
-2023-10-03T22:00:55.552731Z TRACE ThreadId(03) adding file "functions\\fnc_setup.sqf"
-2023-10-03T22:00:55.552986Z TRACE ThreadId(03) adding file "functions\\fnc_inputSlewUp.sqfc"
-2023-10-03T22:00:55.553462Z TRACE ThreadId(03) adding file "functions\\fnc_handleSlew.sqf"
-2023-10-03T22:00:55.553716Z TRACE ThreadId(03) adding file "functions\\fnc_lockCamera.sqfc"
-2023-10-03T22:00:55.553753Z TRACE ThreadId(03) adding file "functions\\fnc_keySlewToWaypoint.sqfc"
-2023-10-03T22:00:55.554217Z TRACE ThreadId(03) adding file "functions\\fnc_holdTurretLock.sqf"
-2023-10-03T22:00:55.554877Z TRACE ThreadId(03) adding file "functions\\fnc_keyFLIRSlewToHMD.sqf"
-2023-10-03T22:00:55.555560Z TRACE ThreadId(03) adding file "functions\\fnc_keySlewToWaypoint.sqf"
-2023-10-03T22:00:55.555807Z TRACE ThreadId(03) adding file "functions\\fnc_isSlewable.sqfc"
-2023-10-03T22:00:55.555838Z TRACE ThreadId(03) adding file "functions\\fnc_handleSlew.sqfc"
-2023-10-03T22:00:55.556273Z TRACE ThreadId(03) adding file "functions\\fnc_setCollisionLights.sqf"
-2023-10-03T22:00:55.556502Z TRACE ThreadId(03) adding file "functions\\fnc_zoomTurret.sqfc"
-2023-10-03T22:00:55.556532Z TRACE ThreadId(03) adding file "functions\\fnc_setup.sqfc"
-2023-10-03T22:00:55.556975Z TRACE ThreadId(03) adding file "functions\\fnc_takeControls.sqf"
-2023-10-03T22:00:55.557616Z TRACE ThreadId(03) adding file "functions\\fnc_isSlewable.sqf"
-2023-10-03T22:00:55.558267Z TRACE ThreadId(03) adding file "functions\\fnc_inputSlewUp.sqf"
-2023-10-03T22:00:55.558960Z TRACE ThreadId(03) adding file "functions\\fnc_trackCCIP.sqf"
-2023-10-03T22:00:55.559210Z TRACE ThreadId(03) adding file "functions\\fnc_takeControls.sqfc"
-2023-10-03T22:00:55.559259Z TRACE ThreadId(03) adding file "functions\\fnc_inputSlewDown.sqfc"
-2023-10-03T22:00:55.559298Z TRACE ThreadId(03) adding file "functions\\fnc_handleSlewTurret.sqfc"
-2023-10-03T22:00:55.559335Z TRACE ThreadId(03) adding file "functions\\fnc_trackCCIP.sqfc"
-2023-10-03T22:00:55.559373Z TRACE ThreadId(03) adding file "functions\\fnc_handlePanel.sqfc"
-2023-10-03T22:00:55.559411Z TRACE ThreadId(03) adding file "functions\\fnc_holdTurretLock.sqfc"
-2023-10-03T22:00:55.560787Z TRACE ThreadId(03) adding file "config\\mouseBlocker.hpp"
-2023-10-03T22:00:55.561664Z TRACE ThreadId(03) adding file "config\\CfgUserActions.hpp"
-2023-10-03T22:00:55.562482Z TRACE ThreadId(03) adding file "config\\CfgDefaultKeysPresets.hpp"
-2023-10-03T22:00:55.563185Z TRACE ThreadId(03) adding file "config\\UserActionGroups.hpp"
-2023-10-03T22:00:55.563834Z TRACE ThreadId(03) adding file "config\\UserActionsConflictGroups.hpp"
-2023-10-03T22:00:55.566825Z  INFO ThreadId(01) Built 2 PBOs
-2023-10-03T22:00:55.566841Z TRACE ThreadId(01) phase: build (done)
-2023-10-03T22:00:55.566848Z TRACE ThreadId(01) phase: post_build (start)
-2023-10-03T22:00:55.566854Z TRACE ThreadId(01) phase: post_build (sqf) (start)
-2023-10-03T22:00:55.566860Z TRACE ThreadId(01) phase: post_build (sqf) (done)
-2023-10-03T22:00:55.566866Z TRACE ThreadId(01) phase: post_build (Rapifier) (start)
-2023-10-03T22:00:55.566871Z TRACE ThreadId(01) phase: post_build (Rapifier) (done)
-2023-10-03T22:00:55.566882Z TRACE ThreadId(01) phase: post_build (Binarize) (start)
-2023-10-03T22:00:55.566888Z TRACE ThreadId(01) phase: post_build (Binarize) (done)
-2023-10-03T22:00:55.566893Z TRACE ThreadId(01) phase: post_build (Hooks) (start)
-2023-10-03T22:00:55.566899Z TRACE ThreadId(01) phase: post_build (Hooks) (done)
-2023-10-03T22:00:55.566905Z TRACE ThreadId(01) phase: post_build (ArmaScriptCompiler) (start)
-2023-10-03T22:00:55.566910Z TRACE ThreadId(01) phase: post_build (ArmaScriptCompiler) (done)
-2023-10-03T22:00:55.566916Z TRACE ThreadId(01) phase: post_build (Files) (start)
-2023-10-03T22:00:55.568518Z DEBUG ThreadId(01) copying "/AUTHORS.txt" => "E:\\Documents\\GitHub\\tgp-slew-cockpit\\.hemttout\\build\\AUTHORS.txt"
-2023-10-03T22:00:55.570114Z DEBUG ThreadId(01) copying "/LICENSE" => "E:\\Documents\\GitHub\\tgp-slew-cockpit\\.hemttout\\build\\LICENSE"
-2023-10-03T22:00:55.575057Z DEBUG ThreadId(01) copying "/logo_ampersand_ca.paa" => "E:\\Documents\\GitHub\\tgp-slew-cockpit\\.hemttout\\build\\logo_ampersand_ca.paa"
-2023-10-03T22:00:55.576873Z DEBUG ThreadId(01) copying "/README.md" => "E:\\Documents\\GitHub\\tgp-slew-cockpit\\.hemttout\\build\\README.md"
-2023-10-03T22:00:55.581871Z DEBUG ThreadId(01) copying "/mod.cpp" => "E:\\Documents\\GitHub\\tgp-slew-cockpit\\.hemttout\\build\\mod.cpp"
-2023-10-03T22:00:56.133748Z  INFO ThreadId(01) Copied 5 files
-2023-10-03T22:00:56.133769Z TRACE ThreadId(01) phase: post_build (Files) (done)
-2023-10-03T22:00:56.133778Z TRACE ThreadId(01) phase: post_build (done)
+2023-10-04T02:57:16.387090Z TRACE ThreadId(01) version: 1.8.0
+2023-10-04T02:57:16.387180Z TRACE ThreadId(01) platform: windows
+2023-10-04T02:57:16.388073Z TRACE ThreadId(01) checking for version macro in "addons/main/script_version.hpp"
+2023-10-04T02:57:16.395131Z  INFO ThreadId(01) Config loaded for TGP Simple Cockpit Slew 2.0.0.0-8ccf3557
+2023-10-04T02:57:16.395158Z TRACE ThreadId(01) using temporary folder: "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit"
+2023-10-04T02:57:16.395171Z TRACE ThreadId(01) using project folder: "E:\\Documents\\GitHub\\tgp-slew-cockpit"
+2023-10-04T02:57:16.395180Z TRACE ThreadId(01) using out folder: "E:\\Documents\\GitHub\\tgp-slew-cockpit\\.hemttout"
+2023-10-04T02:57:16.395368Z TRACE ThreadId(01) using build folder: "E:\\Documents\\GitHub\\tgp-slew-cockpit\\.hemttout\\build"
+2023-10-04T02:57:16.397870Z TRACE ThreadId(01) vfs overlay at root: "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit\\output"
+2023-10-04T02:57:16.397890Z TRACE ThreadId(01) vfs root: "E:\\Documents\\GitHub\\tgp-slew-cockpit"
+2023-10-04T02:57:16.399054Z  INFO ThreadId(01) Creating `build` version
+2023-10-04T02:57:16.399073Z TRACE ThreadId(01) phase: init (start)
+2023-10-04T02:57:16.413428Z TRACE ThreadId(01) link "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit\\source\\z\\tgp\\addons\\kits" => "E:\\Documents\\GitHub\\tgp-slew-cockpit\\addons\\kits"
+2023-10-04T02:57:16.429926Z TRACE ThreadId(01) link "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit\\source\\z\\tgp\\addons\\main" => "E:\\Documents\\GitHub\\tgp-slew-cockpit\\addons\\main"
+2023-10-04T02:57:16.444871Z TRACE ThreadId(01) link "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit\\source\\a3\\ui_f" => "E:\\Documents\\GitHub\\tgp-slew-cockpit\\include\\a3\\ui_f"
+2023-10-04T02:57:16.461313Z TRACE ThreadId(01) link "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit\\source\\x\\cba" => "E:\\Documents\\GitHub\\tgp-slew-cockpit\\include\\x\\cba"
+2023-10-04T02:57:16.475752Z TRACE ThreadId(01) phase: init (sqf) (start)
+2023-10-04T02:57:16.475771Z TRACE ThreadId(01) phase: init (sqf) (done)
+2023-10-04T02:57:16.475775Z TRACE ThreadId(01) phase: init (Rapifier) (start)
+2023-10-04T02:57:16.475779Z TRACE ThreadId(01) phase: init (Rapifier) (done)
+2023-10-04T02:57:16.475789Z TRACE ThreadId(01) phase: init (Binarize) (start)
+2023-10-04T02:57:16.475962Z TRACE ThreadId(01) phase: init (Binarize) (done)
+2023-10-04T02:57:16.475973Z TRACE ThreadId(01) phase: init (Hooks) (start)
+2023-10-04T02:57:16.476051Z TRACE ThreadId(01) no hooks folder
+2023-10-04T02:57:16.476058Z TRACE ThreadId(01) phase: init (Hooks) (done)
+2023-10-04T02:57:16.476063Z TRACE ThreadId(01) phase: init (ArmaScriptCompiler) (start)
+2023-10-04T02:57:16.476070Z TRACE ThreadId(01) using asc folder at "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit\\asc"
+2023-10-04T02:57:16.476347Z TRACE ThreadId(01) phase: init (ArmaScriptCompiler) (done)
+2023-10-04T02:57:16.476360Z TRACE ThreadId(01) phase: init (Files) (start)
+2023-10-04T02:57:16.476366Z TRACE ThreadId(01) phase: init (Files) (done)
+2023-10-04T02:57:16.476372Z TRACE ThreadId(01) phase: init (done)
+2023-10-04T02:57:16.476381Z TRACE ThreadId(01) phase: check (start)
+2023-10-04T02:57:16.476386Z TRACE ThreadId(01) phase: check (sqf) (start)
+2023-10-04T02:57:16.476394Z TRACE ThreadId(01) phase: check (sqf) (done)
+2023-10-04T02:57:16.476399Z TRACE ThreadId(01) phase: check (Rapifier) (start)
+2023-10-04T02:57:16.476405Z TRACE ThreadId(01) phase: check (Rapifier) (done)
+2023-10-04T02:57:16.476410Z TRACE ThreadId(01) phase: check (Binarize) (start)
+2023-10-04T02:57:16.476415Z TRACE ThreadId(01) phase: check (Binarize) (done)
+2023-10-04T02:57:16.476423Z TRACE ThreadId(01) phase: check (Hooks) (start)
+2023-10-04T02:57:16.476435Z TRACE ThreadId(01) phase: check (Hooks) (done)
+2023-10-04T02:57:16.476444Z TRACE ThreadId(01) phase: check (ArmaScriptCompiler) (start)
+2023-10-04T02:57:16.476488Z TRACE ThreadId(01) phase: check (ArmaScriptCompiler) (done)
+2023-10-04T02:57:16.476498Z TRACE ThreadId(01) phase: check (Files) (start)
+2023-10-04T02:57:16.476504Z TRACE ThreadId(01) phase: check (Files) (done)
+2023-10-04T02:57:16.476510Z TRACE ThreadId(01) phase: check (done)
+2023-10-04T02:57:16.476519Z TRACE ThreadId(01) phase: pre_build (start)
+2023-10-04T02:57:16.476525Z TRACE ThreadId(01) phase: pre_build (sqf) (start)
+2023-10-04T02:57:16.476530Z TRACE ThreadId(01) phase: pre_build (sqf) (done)
+2023-10-04T02:57:16.476536Z TRACE ThreadId(01) phase: pre_build (Rapifier) (start)
+2023-10-04T02:57:16.478094Z DEBUG ThreadId(04) rapifying /addons/main/config.cpp
+2023-10-04T02:57:16.481859Z DEBUG ThreadId(02) rapifying /addons/kits/config.cpp
+2023-10-04T02:57:16.581838Z  INFO ThreadId(01) Rapified 2 addon configs
+2023-10-04T02:57:16.581866Z TRACE ThreadId(01) phase: pre_build (Rapifier) (done)
+2023-10-04T02:57:16.581874Z TRACE ThreadId(01) phase: pre_build (Binarize) (start)
+2023-10-04T02:57:16.606778Z DEBUG ThreadId(02) binarizing tgp_kit_single.p3d
+2023-10-04T02:57:16.606778Z DEBUG ThreadId(03) binarizing tgp_kit.p3d
+2023-10-04T02:57:16.607362Z TRACE ThreadId(03) "E:\\Steam Library\\steamapps\\common\\Arma 3 Tools\\Binarize\\binarize_x64.exe" "-norecurse" "-always" "-silent" "-maxProcesses=0" "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit\\source\\z\\tgp\\addons\\kits\\data\\" "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit\\output\\addons/kits/data" "tgp_kit.p3d"
+2023-10-04T02:57:16.607453Z TRACE ThreadId(02) "E:\\Steam Library\\steamapps\\common\\Arma 3 Tools\\Binarize\\binarize_x64.exe" "-norecurse" "-always" "-silent" "-maxProcesses=0" "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit\\source\\z\\tgp\\addons\\kits\\data\\" "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit\\output\\addons/kits/data" "tgp_kit_single.p3d"
+2023-10-04T02:57:16.868984Z  INFO ThreadId(01) Binarized 2 files
+2023-10-04T02:57:16.869015Z TRACE ThreadId(01) phase: pre_build (Binarize) (done)
+2023-10-04T02:57:16.869022Z TRACE ThreadId(01) phase: pre_build (Hooks) (start)
+2023-10-04T02:57:16.869061Z TRACE ThreadId(01) phase: pre_build (Hooks) (done)
+2023-10-04T02:57:16.869072Z TRACE ThreadId(01) phase: pre_build (ArmaScriptCompiler) (start)
+2023-10-04T02:57:16.869582Z TRACE ThreadId(01) unpacking "asc.exe" to "C:\\Users\\amper\\AppData\\Local\\Temp\\hemtt\\Documents_GitHub_tgp-slew-cockpit\\asc\\asc.exe"
+2023-10-04T02:57:17.583713Z DEBUG ThreadId(01) ASC Preprocess took 709
+2023-10-04T02:57:17.712460Z DEBUG ThreadId(01) ASC took 128
+2023-10-04T02:57:17.731767Z  INFO ThreadId(01) Compiled 26 sqf files
+2023-10-04T02:57:17.732910Z TRACE ThreadId(01) phase: pre_build (ArmaScriptCompiler) (done)
+2023-10-04T02:57:17.732925Z TRACE ThreadId(01) phase: pre_build (Files) (start)
+2023-10-04T02:57:17.732932Z TRACE ThreadId(01) phase: pre_build (Files) (done)
+2023-10-04T02:57:17.732938Z TRACE ThreadId(01) phase: pre_build (done)
+2023-10-04T02:57:17.732943Z TRACE ThreadId(01) phase: build (start)
+2023-10-04T02:57:17.736353Z DEBUG ThreadId(02) building "addons/kits" => "E:\\Documents\\GitHub\\tgp-slew-cockpit\\.hemttout\\build\\addons\\tgp_kits.pbo"
+2023-10-04T02:57:17.736432Z DEBUG ThreadId(03) building "addons/main" => "E:\\Documents\\GitHub\\tgp-slew-cockpit\\.hemttout\\build\\addons\\tgp_main.pbo"
+2023-10-04T02:57:17.736865Z TRACE ThreadId(02) adding file "XEH_preStart.sqfc"
+2023-10-04T02:57:17.737395Z TRACE ThreadId(02) adding file "CfgEventHandlers.hpp"
+2023-10-04T02:57:17.737945Z TRACE ThreadId(03) adding file "README.md"
+2023-10-04T02:57:17.738243Z TRACE ThreadId(02) adding file "XEH_preInit_server.sqf"
+2023-10-04T02:57:17.738659Z TRACE ThreadId(03) adding file "XEH_postInit.sqf"
+2023-10-04T02:57:17.738933Z TRACE ThreadId(02) adding file "XEH_PREP.hpp"
+2023-10-04T02:57:17.739330Z TRACE ThreadId(02) adding file "XEH_preInit.sqfc"
+2023-10-04T02:57:17.739346Z TRACE ThreadId(03) adding file "script_version.hpp"
+2023-10-04T02:57:17.740040Z TRACE ThreadId(03) adding file "script_component.hpp"
+2023-10-04T02:57:17.740402Z TRACE ThreadId(02) adding file "config.bin"
+2023-10-04T02:57:17.740766Z TRACE ThreadId(03) adding file "CfgEventHandlers.hpp"
+2023-10-04T02:57:17.741446Z TRACE ThreadId(02) adding file "XEH_preInit.sqf"
+2023-10-04T02:57:17.741475Z TRACE ThreadId(03) adding file "script_macros.hpp"
+2023-10-04T02:57:17.742202Z TRACE ThreadId(03) adding file "XEH_PREP.hpp"
+2023-10-04T02:57:17.742291Z TRACE ThreadId(02) adding file "script_component.hpp"
+2023-10-04T02:57:17.742536Z TRACE ThreadId(03) adding file "initSettings.sqfc"
+2023-10-04T02:57:17.742948Z TRACE ThreadId(02) adding file "XEH_postInit_client.sqf"
+2023-10-04T02:57:17.743676Z TRACE ThreadId(02) adding file "CfgEditorSubcategories.hpp"
+2023-10-04T02:57:17.744239Z TRACE ThreadId(03) adding file "XEH_postInit.sqfc"
+2023-10-04T02:57:17.744279Z TRACE ThreadId(03) adding file "XEH_preStart.sqfc"
+2023-10-04T02:57:17.744309Z TRACE ThreadId(03) adding file "XEH_preInit.sqfc"
+2023-10-04T02:57:17.744780Z TRACE ThreadId(03) adding file "initSettings.sqf"
+2023-10-04T02:57:17.744799Z TRACE ThreadId(02) adding file "XEH_postInit.sqf"
+2023-10-04T02:57:17.745035Z TRACE ThreadId(03) adding file "config.bin"
+2023-10-04T02:57:17.745537Z TRACE ThreadId(03) adding file "script_mod.hpp"
+2023-10-04T02:57:17.745797Z TRACE ThreadId(02) adding file "XEH_preStart.sqf"
+2023-10-04T02:57:17.746230Z TRACE ThreadId(03) adding file "stringtable.xml"
+2023-10-04T02:57:17.746536Z TRACE ThreadId(02) adding file "CfgVehicles.hpp"
+2023-10-04T02:57:17.746896Z TRACE ThreadId(03) adding file "XEH_preInit.sqf"
+2023-10-04T02:57:17.747654Z TRACE ThreadId(03) adding file "XEH_preStart.sqf"
+2023-10-04T02:57:17.747892Z TRACE ThreadId(02) adding file "data\\tgp_kit.p3d"
+2023-10-04T02:57:17.748157Z TRACE ThreadId(02) adding file "data\\tgp_kit_single.p3d"
+2023-10-04T02:57:17.748342Z TRACE ThreadId(03) adding file "initKeybinds.sqf"
+2023-10-04T02:57:17.748887Z TRACE ThreadId(02) adding file "data\\model.cfg"
+2023-10-04T02:57:17.749762Z TRACE ThreadId(03) adding file "config\\mouseBlocker.hpp"
+2023-10-04T02:57:17.750136Z TRACE ThreadId(02) adding file "functions\\fnc_printAddonSetupReminder.sqf"
+2023-10-04T02:57:17.750487Z TRACE ThreadId(03) adding file "config\\CfgUserActions.hpp"
+2023-10-04T02:57:17.750837Z TRACE ThreadId(02) adding file "functions\\script_component.hpp"
+2023-10-04T02:57:17.751089Z TRACE ThreadId(02) adding file "functions\\fnc_printAddonSetupReminder.sqfc"
+2023-10-04T02:57:17.751285Z TRACE ThreadId(03) adding file "config\\UserActionGroups.hpp"
+2023-10-04T02:57:17.752025Z TRACE ThreadId(03) adding file "config\\CfgDefaultKeysPresets.hpp"
+2023-10-04T02:57:17.753003Z TRACE ThreadId(03) adding file "config\\UserActionsConflictGroups.hpp"
+2023-10-04T02:57:17.754252Z TRACE ThreadId(03) adding file "functions\\fnc_setup.sqf"
+2023-10-04T02:57:17.755094Z TRACE ThreadId(03) adding file "functions\\fnc_inputSlewDown.sqf"
+2023-10-04T02:57:17.755405Z TRACE ThreadId(03) adding file "functions\\fnc_setup.sqfc"
+2023-10-04T02:57:17.755897Z TRACE ThreadId(03) adding file "functions\\fnc_lockCamera.sqf"
+2023-10-04T02:57:17.756138Z TRACE ThreadId(03) adding file "functions\\fnc_takeControls.sqfc"
+2023-10-04T02:57:17.756601Z TRACE ThreadId(03) adding file "functions\\fnc_holdTurretLock.sqf"
+2023-10-04T02:57:17.756862Z TRACE ThreadId(03) adding file "functions\\fnc_zoomTurret.sqfc"
+2023-10-04T02:57:17.757399Z TRACE ThreadId(03) adding file "functions\\fnc_takeControls.sqf"
+2023-10-04T02:57:17.757663Z TRACE ThreadId(03) adding file "functions\\fnc_inputSlewDown.sqfc"
+2023-10-04T02:57:17.758164Z TRACE ThreadId(03) adding file "functions\\script_component.hpp"
+2023-10-04T02:57:17.758857Z TRACE ThreadId(03) adding file "functions\\fnc_handleSlew.sqf"
+2023-10-04T02:57:17.759611Z TRACE ThreadId(03) adding file "functions\\fnc_trackCCIP.sqf"
+2023-10-04T02:57:17.759937Z TRACE ThreadId(03) adding file "functions\\fnc_holdTurretLock.sqfc"
+2023-10-04T02:57:17.760437Z TRACE ThreadId(03) adding file "functions\\fnc_isSlewable.sqf"
+2023-10-04T02:57:17.760710Z TRACE ThreadId(03) adding file "functions\\fnc_handlePanel.sqfc"
+2023-10-04T02:57:17.760737Z TRACE ThreadId(03) adding file "functions\\fnc_keySlewToWaypoint.sqfc"
+2023-10-04T02:57:17.761414Z TRACE ThreadId(03) adding file "functions\\fnc_ccip_nodrag.sqf"
+2023-10-04T02:57:17.762354Z TRACE ThreadId(03) adding file "functions\\fnc_keySlewToWaypoint.sqf"
+2023-10-04T02:57:17.762632Z TRACE ThreadId(03) adding file "functions\\fnc_handleSlew.sqfc"
+2023-10-04T02:57:17.762669Z TRACE ThreadId(03) adding file "functions\\fnc_inputSlewUp.sqfc"
+2023-10-04T02:57:17.762701Z TRACE ThreadId(03) adding file "functions\\fnc_parseCameraTarget.sqfc"
+2023-10-04T02:57:17.762733Z TRACE ThreadId(03) adding file "functions\\fnc_handleSlewTurret.sqfc"
+2023-10-04T02:57:17.763239Z TRACE ThreadId(03) adding file "functions\\fnc_handleSlewTurret.sqf"
+2023-10-04T02:57:17.763778Z TRACE ThreadId(03) adding file "functions\\fnc_keyFLIRSlewToHMD.sqf"
+2023-10-04T02:57:17.763953Z TRACE ThreadId(03) adding file "functions\\fnc_handleZoom.sqfc"
+2023-10-04T02:57:17.763972Z TRACE ThreadId(03) adding file "functions\\fnc_lockCamera.sqfc"
+2023-10-04T02:57:17.764474Z TRACE ThreadId(03) adding file "functions\\fnc_handlePanel.sqf"
+2023-10-04T02:57:17.764652Z TRACE ThreadId(03) adding file "functions\\fnc_trackCCIP.sqfc"
+2023-10-04T02:57:17.764976Z TRACE ThreadId(03) adding file "functions\\fnc_parseCameraTarget.sqf"
+2023-10-04T02:57:17.765457Z TRACE ThreadId(03) adding file "functions\\fnc_setCollisionLights.sqf"
+2023-10-04T02:57:17.765925Z TRACE ThreadId(03) adding file "functions\\fnc_inputSlewUp.sqf"
+2023-10-04T02:57:17.766090Z TRACE ThreadId(03) adding file "functions\\fnc_ccip_nodrag.sqfc"
+2023-10-04T02:57:17.766433Z TRACE ThreadId(03) adding file "functions\\fnc_zoomTurret.sqf"
+2023-10-04T02:57:17.766598Z TRACE ThreadId(03) adding file "functions\\fnc_setStabilization.sqfc"
+2023-10-04T02:57:17.766631Z TRACE ThreadId(03) adding file "functions\\fnc_keyFLIRSlewToHMD.sqfc"
+2023-10-04T02:57:17.766648Z TRACE ThreadId(03) adding file "functions\\fnc_isSlewable.sqfc"
+2023-10-04T02:57:17.766662Z TRACE ThreadId(03) adding file "functions\\fnc_setCollisionLights.sqfc"
+2023-10-04T02:57:17.767039Z TRACE ThreadId(03) adding file "functions\\fnc_handleZoom.sqf"
+2023-10-04T02:57:17.767646Z TRACE ThreadId(03) adding file "functions\\fnc_setStabilization.sqf"
+2023-10-04T02:57:17.770962Z  INFO ThreadId(01) Built 2 PBOs
+2023-10-04T02:57:17.770981Z TRACE ThreadId(01) phase: build (done)
+2023-10-04T02:57:17.771011Z TRACE ThreadId(01) phase: post_build (start)
+2023-10-04T02:57:17.771023Z TRACE ThreadId(01) phase: post_build (sqf) (start)
+2023-10-04T02:57:17.771030Z TRACE ThreadId(01) phase: post_build (sqf) (done)
+2023-10-04T02:57:17.771058Z TRACE ThreadId(01) phase: post_build (Rapifier) (start)
+2023-10-04T02:57:17.771069Z TRACE ThreadId(01) phase: post_build (Rapifier) (done)
+2023-10-04T02:57:17.771076Z TRACE ThreadId(01) phase: post_build (Binarize) (start)
+2023-10-04T02:57:17.771081Z TRACE ThreadId(01) phase: post_build (Binarize) (done)
+2023-10-04T02:57:17.771087Z TRACE ThreadId(01) phase: post_build (Hooks) (start)
+2023-10-04T02:57:17.771093Z TRACE ThreadId(01) phase: post_build (Hooks) (done)
+2023-10-04T02:57:17.771098Z TRACE ThreadId(01) phase: post_build (ArmaScriptCompiler) (start)
+2023-10-04T02:57:17.771103Z TRACE ThreadId(01) phase: post_build (ArmaScriptCompiler) (done)
+2023-10-04T02:57:17.771111Z TRACE ThreadId(01) phase: post_build (Files) (start)
+2023-10-04T02:57:17.774207Z DEBUG ThreadId(01) copying "/LICENSE" => "E:\\Documents\\GitHub\\tgp-slew-cockpit\\.hemttout\\build\\LICENSE"
+2023-10-04T02:57:17.778667Z DEBUG ThreadId(01) copying "/logo_ampersand_ca.paa" => "E:\\Documents\\GitHub\\tgp-slew-cockpit\\.hemttout\\build\\logo_ampersand_ca.paa"
+2023-10-04T02:57:17.781093Z DEBUG ThreadId(01) copying "/AUTHORS.txt" => "E:\\Documents\\GitHub\\tgp-slew-cockpit\\.hemttout\\build\\AUTHORS.txt"
+2023-10-04T02:57:17.782668Z DEBUG ThreadId(01) copying "/mod.cpp" => "E:\\Documents\\GitHub\\tgp-slew-cockpit\\.hemttout\\build\\mod.cpp"
+2023-10-04T02:57:17.785296Z DEBUG ThreadId(01) copying "/README.md" => "E:\\Documents\\GitHub\\tgp-slew-cockpit\\.hemttout\\build\\README.md"
+2023-10-04T02:57:18.388830Z  INFO ThreadId(01) Copied 5 files
+2023-10-04T02:57:18.388851Z TRACE ThreadId(01) phase: post_build (Files) (done)
+2023-10-04T02:57:18.388860Z TRACE ThreadId(01) phase: post_build (done)
