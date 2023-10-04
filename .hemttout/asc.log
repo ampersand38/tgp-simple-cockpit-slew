@@ -1,0 +1,31 @@
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/kits/XEH_preStart.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/kits/XEH_postInit_client.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/kits/XEH_postInit.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/functions/fnc_handleSlew.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/kits/XEH_preInit.sqfc
+compile compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/functions/fnc_ccip_nodrag.sqfcC:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/functions/fnc_handlePanel.sqfc
+
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/kits/XEH_preInit_server.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/kits/functions/fnc_printAddonSetupReminder.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/functions/fnc_holdTurretLock.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/functions/fnc_handleSlewTurret.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/functions/fnc_handleZoom.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/functions/fnc_inputSlewDown.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/functions/fnc_inputSlewUp.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/functions/fnc_keySlewToWaypoint.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/functions/fnc_isSlewable.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/functions/fnc_lockCamera.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/functions/fnc_keyFLIRSlewToHMD.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/functions/fnc_parseCameraTarget.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/functions/fnc_setCollisionLights.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/functions/fnc_setup.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/functions/fnc_setStabilization.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/functions/fnc_takeControls.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/functions/fnc_trackCCIP.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/functions/fnc_zoomTurret.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/XEH_postInit.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/initSettings.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/initKeybinds.sqfc
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/XEH_preInit.sqfc
+[ERR] [L20|C8|/z/tgp/addons/main/initKeybinds.sqf]	Parse Error: syntax error, unexpected (, expecting ] or ","
+compile C:/Users/amper/AppData/Local/Temp/hemtt/Documents_GitHub_tgp-slew-cockpit/asc/output/z/tgp/addons/main/XEH_preStart.sqfc
