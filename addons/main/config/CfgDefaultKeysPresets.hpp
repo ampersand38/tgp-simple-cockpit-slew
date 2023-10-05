@@ -1,6 +1,6 @@
 class CfgDefaultKeysPresets {
-    class Arma2 { // Arma2 is inherited by all other presets.
-        class Mappings {
+	class Arma2 { // Arma2 is inherited by all other presets.
+		class Mappings {
             GVAR(SlewHold)[] = {};
             GVAR(HMD)[] = {};
             GVAR(Waypoint)[] = {};
@@ -12,6 +12,6 @@ class CfgDefaultKeysPresets {
             GVAR(CollisionLightsOn)[] = {};
             GVAR(CollisionLightsOff)[] = {};
             GVAR(CollisionLightsToggle)[] = {};
-        };
-    };
+		};
+	};
 };
