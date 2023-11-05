@@ -3,6 +3,7 @@
 if (hasInterface) then {
     addUserActionEventHandler ["gunElevUp", "Activate", { tgp_main_ccipOffset = tgp_main_ccipOffset + 1; }];
     addUserActionEventHandler ["gunElevDown", "Activate", { tgp_main_ccipOffset = tgp_main_ccipOffset - 1; }];
+    addUserActionEventHandler ["heliManualFire", "Activate", LINKFUNC(manualFire)];
 
 /*
     ["vehicle", FUNC(setup), true] call CBA_fnc_addPlayerEventHandler;
