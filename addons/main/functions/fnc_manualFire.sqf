@@ -10,17 +10,16 @@
  * NONE
  *
  * Example:
- * call tgp_main_fnc_trackCCIP
+ * call tgp_main_fnc_manualFire
  */
 
 #define MAX_ANGLE 5 // rad 5
 
 if (
-    [] call CBA_fnc_getActiveFeatureCamera != ""
+    GVAR(isRunningManualFire)
+    || {[] call CBA_fnc_getActiveFeatureCamera != ""}
     || {visibleMap}
-) exitWith {};
-
-if (GVAR(isRunningManualFire)) exitWith {
+) exitWith {
     GVAR(isRunningManualFire) = false;
 };
 
@@ -108,7 +107,7 @@ GVAR(isRunningManualFire) = true;
 
         _vehicle lockCameraTo [_lockPos, _turretPath, true];
 
-        //if ((inputAction "defaultAction" + inputAction "fire") == 0) then {continue;};
+        if ((inputAction "defaultAction" + inputAction "fire") == 0) then {continue;};
 
         private _breechPos = _vehicle modelToWorldVisualWorld (_vehicle selectionPosition _breechSel);
         private _muzzlePos = _vehicle modelToWorldVisualWorld (_vehicle selectionPosition _muzzleSel);
