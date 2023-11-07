@@ -16,7 +16,7 @@ include = [
 ]
 exclude = [
     ".vscode",
-    "*.sqfc",
+    "*.sqfc"
 ]
 
 [asc]

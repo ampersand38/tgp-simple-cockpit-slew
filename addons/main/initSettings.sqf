@@ -37,6 +37,15 @@
     }
 ] call CBA_fnc_addSetting;
 
+[
+    "tgp_main_setting_manualFireHint", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.
+    "CHECKBOX", // setting type
+    ["Show Hint", "Display hint showing status of gunners while Manual Fire is active."],
+    ["TGP Simple Cockpit Slew", "Manual Fire"], // Pretty name of the category where the setting can be found. Can be stringtable entry.
+    true, // data for this setting: [min, max, default, number of shown trailing decimals]
+    nil // "_isGlobal" flag. Set this to true to always have this setting synchronized between all clients in multiplayer
+] call CBA_fnc_addSetting;
+
 /*
 [
     "tgp_main_setting_createGunner", // Internal setting name, should always contain a tag! This will be the global variable which takes the value of the setting.

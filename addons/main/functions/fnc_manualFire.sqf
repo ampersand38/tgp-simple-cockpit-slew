@@ -58,10 +58,9 @@ private _manualFires = [];
 
     if (abs getNumber (_turretCfg >> "initTurn") == 180) then {continue;};
 
-    private _muzzleSel = getText (_turretCfg >> "gunBeg");
-    private _breechSel = getText (_turretCfg >> "gunEnd");
+    private _opticsSel = getText (_turretCfg >> "memoryPointGunnerOptics");
 
-    _manualFires pushBack [_turretPath, _muzzleSel, _breechSel, _gunner, _muzzle, _fireMode];
+    _manualFires pushBack [_turretPath, _opticsSel, _gunner, _muzzle, _fireMode];
 } forEach allTurrets _vehicle;
 
 if (_manualFires isEqualTo []) exitWith {};
@@ -73,29 +72,29 @@ GVAR(isRunningManualFire) = true;
     params ["_args", "_pfhID"];
     _args params ["_unit", "_vehicle", "_manualFires"];
 
-    #ifdef DEBUG_MODE_FULL
-        private _firing = [];
-    #endif
+    private _hint = [];
 
     // Exit if target object is deleted
     if (
         !GVAR(isRunningManualFire)
+        || {[] call CBA_fnc_getActiveFeatureCamera != ""}
+        || {visibleMap}
         || {!alive _unit}
         || {!alive _vehicle}
         || {!(_unit in _vehicle)}
     ) exitWith {
         {
-            _x params ["_turretPath", "_muzzleSel", "_breechSel", "_gunner", "_muzzle", "_fireMode"];
-            _vehicle lockCameraTo [objNull, _turretPath, true];
+            _vehicle lockCameraTo [objNull, _x select 0, true];
         } forEach _manualFires;
         GVAR(isRunningManualFire) = false;
+        hintSilent "";
         [_pfhID] call CBA_fnc_removePerFrameHandler;
     };
 
     private _lockPos = AGLToASL positionCameraToWorld [0, 0, 10000];
     private _lockDir = positionCameraToWorld [0, 0, 0] vectorFromTo _lockPos;
     {
-        _x params ["_turretPath", "_muzzleSel", "_breechSel", "_gunner", "_muzzle", "_fireMode"];
+        _x params ["_turretPath", "_opticsSel", "_gunner", "_muzzle", "_fireMode"];
 
         if (
             !alive _gunner
@@ -107,47 +106,46 @@ GVAR(isRunningManualFire) = true;
 
         _vehicle lockCameraTo [_lockPos, _turretPath, true];
 
-        if ((inputAction "defaultAction" + inputAction "fire") == 0) then {continue;};
+        private _opticsPos = _vehicle modelToWorldVisualWorld (_vehicle selectionPosition _opticsSel);
+        _vehicle selectionVectorDirAndUp [_opticsSel, 1e15] params ["_gunDir"];
+        _gunDir = _vehicle vectorModelToWorldVisual _gunDir;
 
-        private _breechPos = _vehicle modelToWorldVisualWorld (_vehicle selectionPosition _breechSel);
-        private _muzzlePos = _vehicle modelToWorldVisualWorld (_vehicle selectionPosition _muzzleSel);
-
-        private _gunDir = _breechPos vectorFromTo _muzzlePos;
         private _angle = acos (_lockDir vectorDotProduct _gunDir);
+        if (!(_angle isEqualType 0)) then {
+            _angle = 0;
+        };
+            _hint set [_forEachIndex, ["Aiming", _turretPath, _angle toFixed 1, "deg"]];
 
         #ifdef DEBUG_MODE_FULL
-            if (!(_angle isEqualType 0)) then {
-                _angle = 180;
-            };
-            drawLine3D [ASLToAGL _muzzlePos, ASLToAGL _lockPos, [1,1,1,1]];
+            drawLine3D [ASLToAGL _opticsPos, ASLToAGL _lockPos, [1,1,1,1]];
             private _colour = if (_angle > MAX_ANGLE) then {
                 [1,0,0,1]
             } else {
                 [0,1,0,1]
             };
-            drawLine3D [ASLToAGL _muzzlePos, ASLToAGL _muzzlePos vectorAdd (_gunDir vectorMultiply 10000), _colour];
+            drawLine3D [ASLToAGL _opticsPos, ASLToAGL _opticsPos vectorAdd (_gunDir vectorMultiply 10000), _colour];
             drawIcon3D [
                 "",
                 _colour,
-                ASLToAGL _muzzlePos,
+                ASLToAGL _opticsPos,
                 1,1,0,
                 _angle toFixed 1
             ];
-        if ((inputAction "defaultAction" + inputAction "fire") == 0) then {continue;};
         #endif
 
-        if (!(_angle isEqualType 0) || {_angle > MAX_ANGLE}) then {continue;};
+        if ((inputAction "defaultAction" + inputAction "fire") == 0) then {continue;};
+
+        if (_angle > MAX_ANGLE) then {continue;};
 
         #ifdef DEBUG_MODE_FULL
             //hintSilent str ["Firing", _turretPath, _muzzle];
-            _firing pushBack ["Firing", _turretPath, _muzzle];
         #endif
+            _hint set [_forEachIndex, ["Firing", _turretPath, _muzzle]];
 
         _gunner forceWeaponFire [_muzzle, _fireMode];
     } forEachReversed _manualFires;
 
-    #ifdef DEBUG_MODE_FULL
-        hintSilent (_firing joinString endl);
-    #endif
-
+    if (tgp_main_setting_manualFireHint) then {
+        hintSilent (_hint joinString endl);
+    };
 }, 0, [_unit, _vehicle, _manualFires]] call CBA_fnc_addPerFrameHandler;
