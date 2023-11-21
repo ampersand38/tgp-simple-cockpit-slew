@@ -57,4 +57,9 @@ class CfgUserActions {
         tooltip = "";
         onActivate = QUOTE([false] call FUNC(setCollisionLights));		// _this is always true.
     };
+    class GVAR(PIPToggle) { // This class name is used for internal representation and also for the inputAction command.
+        displayName = CSTRING(PIPToggle);
+        tooltip = CSTRING(PIPToggle_Tooltip);
+        onActivate = QUOTE([] call FUNC(toggleRenderTargets));
+    };
 };

@@ -67,6 +67,11 @@
     {[] call FUNC(setCollisionLights)},{}
 ] call CBA_fnc_addKeybind;
 
+[
+    "TGP Simple Cockpit Slew",QGVAR(key_toggleRenderTargets),[LSTRING(PIPToggle),LSTRING(PIPToggle_ToolTip)], // Unbound
+    {[cameraOn, PIPSTATE_TOGGLE] call FUNC(toggleRenderTargets)},{}
+] call CBA_fnc_addKeybind;
+
 /*
 [
 "TGP Simple Cockpit Slew","tgp_main_key_up","Slew Up", // Control + W

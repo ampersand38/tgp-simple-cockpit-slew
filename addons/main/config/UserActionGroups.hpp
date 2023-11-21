@@ -15,7 +15,8 @@ class UserActionGroups
             QGVAR(TakeControls),
             QGVAR(CollisionLightsOn),
             QGVAR(CollisionLightsOff),
-            QGVAR(CollisionLightsToggle)
+            QGVAR(CollisionLightsToggle),
+            QGVAR(PIPToggle)
         };
 	};
 };

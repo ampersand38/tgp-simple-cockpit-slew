@@ -37,6 +37,12 @@
         <Key ID="STR_TGP_Main_CollisionLightsToggle">
             <English>Collision Lights Toggle</English>
         </Key>
+        <Key ID="STR_TGP_Main_PIPToggle">
+            <English>PiP Toggle</English>
+        </Key>
+        <Key ID="STR_TGP_Main_PIPToggle_Tooltip">
+            <English>Toggle Picture-in-Picture (PiP) screens and mirrors.</English>
+        </Key>
         <Key ID="STR_TGP_Main_PlsWork">
             <English>Lock to HMD</English>
         </Key>

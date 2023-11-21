@@ -12,6 +12,7 @@ class CfgDefaultKeysPresets {
             GVAR(CollisionLightsOn)[] = {};
             GVAR(CollisionLightsOff)[] = {};
             GVAR(CollisionLightsToggle)[] = {};
+            GVAR(PIPToggle)[] = {};
 		};
 	};
 };

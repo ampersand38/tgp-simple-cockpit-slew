@@ -16,5 +16,6 @@ PREP(setCollisionLights);
 PREP(setStabilization);
 PREP(setup);
 PREP(takeControls);
+PREP(toggleRenderTargets);
 PREP(trackCCIP);
 PREP(zoomTurret);
