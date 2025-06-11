@@ -43,5 +43,17 @@
         <Key ID="STR_TGP_Main_Waypoint_Tooltip">
             <English>Lock the active camera to the current waypoint. Priority: Shift-Click, Group, ACE MicroDAGR.</English>
         </Key>
+        <Key ID="STR_TGP_Main_focusGunnerView">
+            <English>Focus Gunner View</English>
+        </Key>
+        <Key ID="STR_TGP_Main_focusGunnerView_Tooltip">
+            <English>Create a large display of the gunner feed view.</English>
+        </Key>
+        <Key ID="STR_TGP_Main_toggleLaser">
+            <English>Laser Toggle</English>
+        </Key>
+        <Key ID="STR_TGP_Main_toggleLaser_Tooltip">
+            <English>Toggle the laser designator.</English>
+        </Key>
     </Package>
 </Project>

@@ -72,6 +72,23 @@
     {[cameraOn, PIPSTATE_TOGGLE] call FUNC(toggleRenderTargets)},{}
 ] call CBA_fnc_addKeybind;
 
+[
+    "TGP Simple Cockpit Slew",QGVAR(key_toggleLaser),[LSTRING(toggleLaser),LSTRING(toggleLaser_ToolTip)], // Unbound
+    {[cameraOn] call zen_common_fnc_setVehicleLaserState},{}
+] call CBA_fnc_addKeybind;
+
+[
+    "TGP Simple Cockpit Slew",QGVAR(key_focusGunnerView),[LSTRING(focusGunnerView),LSTRING(focusGunnerView)], // Unbound
+    {
+with uiNamespace do {
+    gf_display = findDisplay 46 createDisplay "RscCustomInfoTransportFeedPrimaryGunner";
+    gf_control = gf_display displayCtrl 102;
+    gf_control ctrlSetPosition [-0.5, -0.4, 2.0, 1.8];
+    gf_control ctrlCommit 0;
+};
+},{}
+] call CBA_fnc_addKeybind;
+
 /*
 [
 "TGP Simple Cockpit Slew","tgp_main_key_up","Slew Up", // Control + W

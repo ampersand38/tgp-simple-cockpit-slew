@@ -65,8 +65,6 @@ private _manualFires = [];
 
 if (_manualFires isEqualTo []) exitWith {};
 
-copyToClipboard (_manualFires joinString endl);
-
 GVAR(isRunningManualFire) = true;
 [{
     params ["_args", "_pfhID"];
@@ -87,7 +85,7 @@ GVAR(isRunningManualFire) = true;
             _vehicle lockCameraTo [objNull, _x select 0, true];
         } forEach _manualFires;
         GVAR(isRunningManualFire) = false;
-        hintSilent "";
+        //hintSilent "";
         [_pfhID] call CBA_fnc_removePerFrameHandler;
     };
 
