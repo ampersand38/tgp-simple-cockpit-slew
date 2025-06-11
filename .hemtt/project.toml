@@ -18,6 +18,3 @@ exclude = [
     ".vscode",
     "*.sqfc"
 ]
-
-[asc]
-enabled = true

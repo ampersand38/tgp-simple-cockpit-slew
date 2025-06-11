@@ -22,7 +22,7 @@ if (tgp_main_setting_AimSlewBlockMouse && {isNil "ace_interact_menu_keyDown" || 
     if (!(uiNamespace getVariable ["tgp_main_mouseBlocker", false])) then {
         setMousePosition [0.5, 0.5];
         (findDisplay 46) createDisplay "tgp_main_mouseBlocker";
-        (finddisplay 86005) displayAddEventHandler ["KeyUp", {[_this,'keyup'] call CBA_events_fnc_keyHandler}];
+        (findDisplay 86005) displayAddEventHandler ["KeyUp", {[_this,'keyup'] call CBA_events_fnc_keyHandler}];
     };
 };
 

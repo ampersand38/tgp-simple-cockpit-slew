@@ -4,7 +4,7 @@
 
 #ifdef DISABLE_COMPILE_CACHE
     #undef PREP
-    #define PREP(fncName) FUNC(fncName) = { call compile preProcessFileLineNumbers QPATHTOF(functions\DOUBLES(fnc,fncName).sqf) }
+    #define PREP(fncName) FUNC(fncName) = { call compile preprocessFileLineNumbers QPATHTOF(functions\DOUBLES(fnc,fncName).sqf) }
     #define LINKFUNC(x) {_this call FUNC(x)}
 #else
     #undef PREP

@@ -3,8 +3,8 @@
 ADDON = false;
 
 #include "XEH_PREP.hpp"
-#include "initSettings.sqf"
-#include "initKeybinds.sqf"
+#include "initSettings.inc.sqf"
+#include "initKeybinds.inc.sqf"
 
 RESET_VARIABLES
 
