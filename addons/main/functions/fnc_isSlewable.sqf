@@ -20,11 +20,17 @@ params ["_vehicle"];
 if (unitIsUAV _vehicle) exitWith {true};
 
 private _turretConfig = [_vehicle, [0]] call CBA_fnc_getTurret;
-if (getNumber (_turretConfig >> "stabilizedInAxes") != STABILIZEDINAXES_XY) exitWith {false};
+if (
+    getNumber (_turretConfig >> "stabilizedInAxes") != STABILIZEDINAXES_XY
+    || {getText (_turretConfig >> "body") == ""}
+    || {getText (_turretConfig >> "gun") == ""}
+    || {getText (_turretConfig >> "animationSourceBody") == ""}
+    || {getText (_turretConfig >> "animationSourceGun") == ""}
+) exitWith {false};
 
 private _player = call CBA_fnc_currentUnit;
 private _gunner = _vehicle turretUnit [0];
-if (isPlayer _gunner) exitWith {};
+if (isPlayer _gunner) exitWith {false};
 if (isNull _gunner && {tgp_main_setting_createGunner}) then {
     private _uavAI = switch (side _player) do {
         case (blufor): { "B_UAV_AI" };
