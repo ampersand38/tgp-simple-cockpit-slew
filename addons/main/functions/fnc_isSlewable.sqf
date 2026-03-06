@@ -21,8 +21,7 @@ if (unitIsUAV _vehicle) exitWith {true};
 
 private _turretConfig = [_vehicle, [0]] call CBA_fnc_getTurret;
 if (
-    getNumber (_turretConfig >> "stabilizedInAxes") != STABILIZEDINAXES_XY
-    || {getText (_turretConfig >> "body") == ""}
+    getText (_turretConfig >> "body") == ""
     || {getText (_turretConfig >> "gun") == ""}
     || {getText (_turretConfig >> "animationSourceBody") == ""}
     || {getText (_turretConfig >> "animationSourceGun") == ""}
