@@ -23,13 +23,13 @@ if (
     GVAR(isRunningManualFire) = false;
 };
 
-private _player = call CBA_fnc_currentUnit;
-private _vehicle = vehicle _player;
+private _unit = call CBA_fnc_currentUnit;
+private _vehicle = vehicle _unit;
 
 if (
-    _vehicle == _player
+    _vehicle == _unit
     || {!local _vehicle}
-    || {effectiveCommander _vehicle != _player}
+    || {effectiveCommander _vehicle != _unit}
 ) exitWith {};
 
 private _groupSelectedUnits = groupSelectedUnits player;
@@ -44,7 +44,7 @@ private _manualFires = [];
     if (
         !(_vehicle turretLocal _turretPath)
         || {!alive _gunner}
-        || {_gunner == _player}
+        || {_gunner == _unit}
         || {_hasSelection && {!(_gunner in _groupSelectedUnits)}}
         || {(_vehicle weaponsTurret _turretPath) isEqualTo []}
         || {

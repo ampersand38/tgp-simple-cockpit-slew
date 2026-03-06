@@ -1,4 +1,3 @@
-class RscCustomInfoTransportFeedPrimaryGunner;
 class tgp_main_mouseBlocker {
   idd = 86005;
   movingEnable = 0;

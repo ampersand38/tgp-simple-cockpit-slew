@@ -13,3 +13,4 @@ release/*
 releases/*
 texHeaders.bin
 Thumbs.db
+.hemttprivatekey

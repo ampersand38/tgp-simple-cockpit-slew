@@ -26,12 +26,12 @@ EXITCHECK
 tgp_main_cameraTarget params ["_isTracking", "", "_oldObject"];
 
 if (_camPosASL isEqualTo []) then {
-    private _camPosASL = switch (GVAR(mode)) do {
+    _camPosASL = switch (GVAR(mode)) do {
         case (MODE_PILOTCAMERA): {
-            _camPosASL = tgp_main_vehicle modelToWorldVisualWorld tgp_main_camPos
+            tgp_main_vehicle modelToWorldVisualWorld tgp_main_camPos
         };
         case (MODE_TURRET): {
-            _camPosASL = tgp_main_vehicle modelToWorldVisualWorld (tgp_main_vehicle selectionPosition tgp_main_camPos)
+            tgp_main_vehicle modelToWorldVisualWorld (tgp_main_vehicle selectionPosition tgp_main_camPos)
         };
     };
 };
