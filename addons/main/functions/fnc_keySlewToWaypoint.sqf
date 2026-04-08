@@ -15,6 +15,8 @@
 
 EXITCHECK
 
+[] call tgp_main_fnc_setup;
+
 private _target = (call CBA_fnc_currentUnit) call {
     if (customWaypointPosition isNotEqualTo []) exitWith {
         AGLToASL customWaypointPosition

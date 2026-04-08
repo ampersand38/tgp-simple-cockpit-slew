@@ -17,7 +17,7 @@ class CfgPatches {
 class CfgMods {
     class PREFIX {
         dir = "@TGP_Slew";
-        name = "TGP Simple Cockpit Slew";
+        name = CSTRING(Name);
 
         author = "Ampersand";                    // probably shown somewhere in the mods menu, but probably ignored by CBA/HEMTT
 

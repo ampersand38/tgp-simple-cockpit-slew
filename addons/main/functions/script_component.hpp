@@ -5,6 +5,14 @@
 #define MODE_FAILED 0
 #define MODE_PILOTCAMERA 1
 #define MODE_TURRET 2
+#define INFO_PANEL_FEEDS [ \
+    ["VehicleDriverDisplay","TransportFeedDisplayComponent"], \
+    ["VehiclePrimaryGunnerDisplay","TransportFeedDisplayComponent"], \
+    ["VehicleCommanderDisplay","TransportFeedDisplayComponent"], \
+    ["UAVDisplay","UAVFeedDisplayComponent"] \
+]
+
+
 
 #define EXITCHECK if ( \
     visibleMap \

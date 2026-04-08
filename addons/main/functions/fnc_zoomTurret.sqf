@@ -17,10 +17,15 @@ EXITCHECK
 
 params ["_increment"];
 
-if ([tgp_main_vehicle] call tgp_main_fnc_isSlewable) exitWith {
-    private _opticsMode = getPilotCameraOpticsMode tgp_main_vehicle;
-    tgp_main_vehicle setPilotCameraOpticsMode (_opticsMode + _increment);
+switch (GVAR(mode)) do {
+    case MODE_PILOTCAMERA: {
+        private _opticsMode = getPilotCameraOpticsMode tgp_main_vehicle;
+        tgp_main_vehicle setPilotCameraOpticsMode (_opticsMode + _increment);
+    };
+    case MODE_TURRET: {
+        private _opticsMode = tgp_main_vehicle getTurretOpticsMode tgp_main_turret;
+        tgp_main_vehicle setTurretOpticsMode [tgp_main_turret, _opticsMode + _increment];
+    };
+    default { };
 };
 
-private _opticsMode = tgp_main_vehicle getTurretOpticsMode tgp_main_turret;
-tgp_main_vehicle setTurretOpticsMode [tgp_main_turret, _opticsMode + _increment];

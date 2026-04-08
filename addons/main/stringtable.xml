@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="TGP">
     <Package name="Main">
+        <Key ID="STR_TGP_Main_AimSlewBlockMouse">
+            <English>Aim Slew Block Mouse</English>
+        </Key>
+        <Key ID="STR_TGP_Main_AimSlewBlockMouse_Tooltip">
+            <English>Block mouse from moving the cyclic while slewing. Not needed if Aim Slew key is same as ACE Interaction key.</English>
+        </Key>
+        <Key ID="STR_TGP_Main_AimSlewCenterMouse">
+            <English>Aim Slew Center Mouse</English>
+        </Key>
+        <Key ID="STR_TGP_Main_AimSlewCenterMouse_Tooltip">
+            <English>Keep mouse cursor centered while slewing. Used when not in fullscreen mode to prevent mouse moving out of Arma window.</English>
+        </Key>
+        <Key ID="STR_TGP_Main_AimSlewSpeed">
+            <English>Aim Slew Speed</English>
+        </Key>
+        <Key ID="STR_TGP_Main_AimSlewSpeed_Tooltip">
+            <English>Sensitivity when slewing using mouse or 'Aim (Up|Down|Left|Right)' inputs.</English>
+        </Key>
+        <Key ID="STR_TGP_Main_AimXFactor">
+            <English>Aim Slew Pan Speed</English>
+        </Key>
+        <Key ID="STR_TGP_Main_AimXFactor_Tooltip">
+            <English>Sensitivity multiplier for pan vs tilt. Use this to adjust diagonal movement.</English>
+        </Key>
         <Key ID="STR_TGP_Main_CCIP">
             <English>Track CCIP</English>
         </Key>
@@ -10,11 +34,26 @@
         <Key ID="STR_TGP_Main_CollisionLightsToggle">
             <English>Collision Lights Toggle</English>
         </Key>
+        <Key ID="STR_TGP_Main_FeedPref">
+            <English>Prefer Left Info Panel Feed</English>
+        </Key>
+        <Key ID="STR_TGP_Main_FeedPref_Tooltip">
+            <English>Priorize the Left info panel feed to control if both are showing controllable feeds. False: Right.</English>
+        </Key>
         <Key ID="STR_TGP_Main_HMDLock">
             <English>Lock to HMD</English>
         </Key>
         <Key ID="STR_TGP_Main_HMDLock_Tooltip">
             <English>Lock the active camera to the current aim point of the HMD.</English>
+        </Key>
+        <Key ID="STR_TGP_Main_ManualFireHint">
+            <English>Show Hint</English>
+        </Key>
+        <Key ID="STR_TGP_Main_ManualFireHint_Tooltip">
+            <English>Display hint showing status of gunners while Manual Fire is active.</English>
+        </Key>
+        <Key ID="STR_TGP_Main_Name">
+            <English>TGP Simple Cockpit Slew</English>
         </Key>
         <Key ID="STR_TGP_Main_PIPToggle">
             <English>PiP Toggle</English>

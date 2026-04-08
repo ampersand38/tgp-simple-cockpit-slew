@@ -13,20 +13,72 @@
  * [] call tgp_main_fnc_setup
  */
 
-[] params [["_unit", call CBA_fnc_currentUnit], ["_vehicle", vehicle call CBA_fnc_currentUnit]];
+private _unit = focusOn;
+private _vehicle = objectParent _unit;
+private _continue = true;
 
 RESET_VARIABLES
 
-private _uav = getConnectedUAV _unit;
+// Group Unit
+private _groupSelectedUnit = groupSelectedUnits focusOn param [0, objNull];
 if (
-    shownUAVFeed
-    && {!isNull _uav}
+    _continue
+    && {!isNull _groupSelectedUnit} // A group unit is selected
+    && {!isNull objectParent _groupSelectedUnit} // Unit is in a vehicle
+    && {[objectParent _groupSelectedUnit, objectParent _groupSelectedUnit unitTurret _groupSelectedUnit] call FUNC(isSlewable)} // Vehicle has a slewable turret
 ) then {
-    _vehicle = _uav;
+    _continue = false;
+    _unit = _groupSelectedUnit;
+    _vehicle = objectParent _groupSelectedUnit;
 };
-if (_vehicle == _unit) exitWith {MODE_FAILED};
 
-if ([_vehicle] call FUNC(isSlewable)) exitWith {
+// Camera Feed
+private _infoPanels = [
+    ["left", "right"],
+    ["right", "left"]
+] select tgp_main_setting_feedPref;
+
+{
+    // Current result is saved in variable _x
+    if (!_continue) then {continue;};
+    switch (infoPanel _x) do {
+        case ["VehicleDriverDisplay","TransportFeedDisplayComponent"]: {
+            if ([_vehicle, driver _vehicle] call FUNC(isSlewable)) then {
+                _continue = false;
+                _unit = driver _vehicle;
+            };
+        };
+        case ["VehiclePrimaryGunnerDisplay","TransportFeedDisplayComponent"]: {
+            if ([_vehicle, gunner _vehicle] call FUNC(isSlewable)) then {
+                _continue = false;
+                _unit = gunner _vehicle;
+            };
+        };
+        case ["VehicleCommanderDisplay","TransportFeedDisplayComponent"]: {
+            if ([_vehicle, commander _vehicle] call FUNC(isSlewable)) then {
+                _continue = false;
+                _unit = commander _vehicle;
+            };
+        };
+        case ["UAVDisplay","UAVFeedDisplayComponent"]: {
+            private _uav = getConnectedUAV _unit;
+            if ([_uav, gunner _uav] call FUNC(isSlewable)) then {
+                _continue = false;
+                _unit = gunner _uav;
+                _vehicle = _uav;
+            };
+            if (_continue && {[_uav, driver _uav] call FUNC(isSlewable)}) then {
+                _continue = false;
+                _unit = driver _uav;
+                _vehicle = _uav;
+            };
+        };
+        default { };
+    };
+
+} forEach _infoPanels;
+
+if ([_vehicle, _unit] call FUNC(isSlewable)) exitWith {
     if (unitIsUAV _vehicle && {!isAutonomous _vehicle}) then {
         _vehicle setAutonomous true;
     };

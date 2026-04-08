@@ -15,6 +15,8 @@
 
 EXITCHECK
 
+[] call tgp_main_fnc_setup;
+
 [
     AGLToASL positionCameraToWorld [0, 0, 5000],
     AGLToASL positionCameraToWorld [0, 0, 0],

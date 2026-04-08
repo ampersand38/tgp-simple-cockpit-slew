@@ -4,41 +4,50 @@
  * Checks if player has a slewable turret's AI gunner selected
  *
  * Arguments:
- * 1: Vehicle <OBJECT>
+ * 0: Vehicle <OBJECT>
+ * 1: Gunner or Turret Path <OBJECT or ARRAY>
  *
  * Return Value:
  * 0: Success <BOOLEAN>
  *
  * Example:
- * [vehicle player] call tgp_main_fnc_isSlewable
+ * [cameraOn] call tgp_main_fnc_isSlewable
  */
 
 #define STABILIZEDINAXES_XY 3
 
-params ["_vehicle"];
+params ["_vehicle", ["_turret", focusOn]];
 
-if (unitIsUAV _vehicle) exitWith {true};
+if (_turret isEqualTo objNull || {_turret isEqualTo []}) exitWith {false};
 
-private _turretConfig = [_vehicle, [0]] call CBA_fnc_getTurret;
-if (
-    getText (_turretConfig >> "body") == ""
-    || {getText (_turretConfig >> "gun") == ""}
-    || {getText (_turretConfig >> "animationSourceBody") == ""}
-    || {getText (_turretConfig >> "animationSourceGun") == ""}
-) exitWith {false};
-
-private _player = call CBA_fnc_currentUnit;
-private _gunner = _vehicle turretUnit [0];
-if (isPlayer _gunner) exitWith {false};
-if (isNull _gunner && {tgp_main_setting_createGunner}) then {
-    private _uavAI = switch (side _player) do {
-        case (blufor): { "B_UAV_AI" };
-        case (opfor): { "O_UAV_AI" };
-        case (independent): { "I_UAV_AI" };
-        case (civilian): { "C_UAV_AI" };
-    };
-    tgp_gunner = group call CBA_fnc_currentUnit createUnit [_uavAI, [0, 0, 0], [], 0, "CAN_COLLIDE"];
-    tgp_gunner moveInGunner _vehicle;
+if (_turret isEqualType objNull) then {
+    _turret = _vehicle unitTurret _turret;
 };
 
-true
+GVAR(slewableTurretsHM) getOrDefaultCall [[typeOf _vehicle, _turret], {
+    if (_turret isEqualTo [-1]) exitWith {
+        (configOf _vehicle >> "pilotCamera" >> "controllable") call BIS_fnc_getCfgDataBool
+    };
+
+    private _turretConfig = [_vehicle, _turret] call CBA_fnc_getTurret;
+    if (
+        getText (_turretConfig >> "body") == ""
+        || {getText (_turretConfig >> "gun") == ""}
+        || {getText (_turretConfig >> "animationSourceBody") == ""}
+        || {getText (_turretConfig >> "animationSourceGun") == ""}
+    ) exitWith {false};
+
+    private _gunner = _vehicle turretUnit _turret;
+    if (isNull _gunner && {tgp_main_setting_createGunner}) then {
+        private _uavAI = switch (side focusOn) do {
+            case (blufor): { "B_UAV_AI" };
+            case (opfor): { "O_UAV_AI" };
+            case (independent): { "I_UAV_AI" };
+            case (civilian): { "C_UAV_AI" };
+        };
+        tgp_gunner = group focusOn createUnit [_uavAI, [0, 0, 0], [], 0, "CAN_COLLIDE"];
+        tgp_gunner moveInGunner _vehicle;
+    };
+
+    true
+}, true];

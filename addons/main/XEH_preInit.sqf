@@ -7,5 +7,6 @@ ADDON = false;
 #include "initKeybinds.inc.sqf"
 
 RESET_VARIABLES
+GVAR(slewableTurretsHM) = createHashMap;
 
 ADDON = true;

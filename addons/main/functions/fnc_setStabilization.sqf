@@ -23,6 +23,8 @@ params [
 
 EXITCHECK
 
+[] call tgp_main_fnc_setup;
+
 tgp_main_cameraTarget params ["_isTracking", "", "_oldObject"];
 
 if (_camPosASL isEqualTo []) then {
