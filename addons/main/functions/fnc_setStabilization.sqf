@@ -54,7 +54,7 @@ if (_tgtPosASL in [[0, 0, 0], []]) then {
 private _willTrack = false;
 private _newObject = objNull;
 private _newPosASL = [0, 0, 0];
-private _intersections = lineIntersectsSurfaces [_camPosASL, _tgtPosASL, tgp_main_vehicle];
+private _intersections = lineIntersectsSurfaces [_camPosASL, _tgtPosASL, tgp_main_vehicle, cameraOn];
 
 if (_intersections isEqualTo []) then {
     // No intersections
