@@ -17,6 +17,11 @@ class CfgUserActions {
         tooltip = CSTRING(Waypoint_Tooltip);
         onActivate = QUOTE([] call FUNC(keySlewToWaypoint));		// _this is always true.
     };
+    class GVAR(LockedTarget) { // This class name is used for internal representation and also for the inputAction command.
+        displayName = CSTRING(LockedTarget);
+        tooltip = CSTRING(LockedTarget_Tooltip);
+        onActivate = QUOTE([] call FUNC(keySlewToLockedTarget));		// _this is always true.
+    };
     class GVAR(Stabilize) { // This class name is used for internal representation and also for the inputAction command.
         displayName = CSTRING(Stabilize);
         tooltip = CSTRING(Stabilize_Tooltip);
@@ -61,5 +66,33 @@ class CfgUserActions {
         displayName = CSTRING(PIPToggle);
         tooltip = CSTRING(PIPToggle_Tooltip);
         onActivate = QUOTE([] call FUNC(toggleRenderTargets));
+    };
+    class GVAR(SlewUp) { // This class name is used for internal representation and also for the inputAction command.
+        displayName = "$STR_usract_look_up_cont";
+        tooltip = "";
+        onActivate = QUOTE([ARR_2(0,_this)] call FUNC(inputSlewAnalog));
+        onDeactivate = QUOTE([ARR_2(0,_this)] call FUNC(inputSlewAnalog));
+        onAnalog = QUOTE([ARR_2(0,_this)] call FUNC(inputSlewAnalog));
+    };
+    class GVAR(SlewDown) { // This class name is used for internal representation and also for the inputAction command.
+        displayName = "$STR_usract_look_down_cont";
+        tooltip = "";
+        onActivate = QUOTE([ARR_2(2,_this)] call FUNC(inputSlewAnalog));
+        onDeactivate = QUOTE([ARR_2(2,_this)] call FUNC(inputSlewAnalog));
+        onAnalog = QUOTE([ARR_2(2,_this)] call FUNC(inputSlewAnalog));
+    };
+    class GVAR(SlewRight) { // This class name is used for internal representation and also for the inputAction command.
+        displayName = "$STR_usract_look_right_cont";
+        tooltip = "";
+        onActivate = QUOTE([ARR_2(1,_this)] call FUNC(inputSlewAnalog));
+        onDeactivate = QUOTE([ARR_2(1,_this)] call FUNC(inputSlewAnalog));
+        onAnalog = QUOTE([ARR_2(1,_this)] call FUNC(inputSlewAnalog));
+    };
+    class GVAR(SlewLeft) { // This class name is used for internal representation and also for the inputAction command.
+        displayName = "$STR_usract_look_left_cont";
+        tooltip = "";
+        onActivate = QUOTE([ARR_2(3,_this)] call FUNC(inputSlewAnalog));
+        onDeactivate = QUOTE([ARR_2(3,_this)] call FUNC(inputSlewAnalog));
+        onAnalog = QUOTE([ARR_2(3,_this)] call FUNC(inputSlewAnalog));
     };
 };

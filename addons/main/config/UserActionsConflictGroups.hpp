@@ -4,6 +4,7 @@ class UserActionsConflictGroups {
             QGVAR(SlewHold),
             QGVAR(HMD),
             QGVAR(Waypoint),
+            QGVAR(LockedTarget),
             QGVAR(Stabilize),
             QGVAR(CCIP),
             QGVAR(ZoomIn),
@@ -12,7 +13,11 @@ class UserActionsConflictGroups {
             QGVAR(CollisionLightsOn),
             QGVAR(CollisionLightsOff),
             QGVAR(CollisionLightsToggle),
-            QGVAR(PIPToggle)
+            QGVAR(PIPToggle),
+            QGVAR(SlewUp),
+            QGVAR(SlewDown),
+            QGVAR(SlewLeft),
+            QGVAR(SlewRight)
         };
     };
 

@@ -13,17 +13,21 @@
  * call tgp_main_fnc_handleSlew
  */
 
-params ["", "_pfID"];
+params [["_isAnalog", false], "_pfID"];
 if (!tgp_main_slewAim) exitWith {[_pfID] call CBA_fnc_removePerFrameHandler;};
 if (tgp_main_setting_CenterMouse) then {setMousePosition [0.5, 0.5]};
 private _vehicle = tgp_main_vehicle;
 
-private _inputX = inputAction "AimRight" - inputAction "AimLeft";
-private _inputY = inputAction "AimUp" - inputAction "AimDown";
+private _inputX = [inputAction "AimRight" - inputAction "AimLeft", GVAR(analogDirection) # 1 - GVAR(analogDirection) # 3] select _isAnalog;
+private _inputY = [inputAction "AimUp" - inputAction "AimDown", GVAR(analogDirection) # 0 - GVAR(analogDirection) # 2] select _isAnalog;
 private _mouseSlew = (_inputX != 0 || {_inputY != 0});
 tgp_main_isSlewing = tgp_main_slewAim && {_mouseSlew};
 
-if (!tgp_main_isSlewing) exitWith {};
+if (!tgp_main_isSlewing) exitWith {
+    if (_isAnalog) then {
+        tgp_main_isSlewing = false;
+    };
+};
 
 (getPilotCameraRotation _vehicle) params ["_azimuth", "_elevation"];
 private _pilotCameraTarget = (getPilotCameraTarget _vehicle);

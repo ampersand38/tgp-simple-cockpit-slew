@@ -2,8 +2,8 @@
 #define COMPONENT_BEAUTIFIED main
 #include "\z\tgp\addons\main\script_mod.hpp"
 
- #define DEBUG_MODE_FULL
- #define DISABLE_COMPILE_CACHE
+// #define DEBUG_MODE_FULL
+// #define DISABLE_COMPILE_CACHE
 // #define CBA_DEBUG_SYNCHRONOUS
 // #define ENABLE_PERFORMANCE_COUNTERS
 
@@ -23,7 +23,10 @@ GVAR(isSlewing) = false; \
 GVAR(isTrackingCCIP) = false; \
 GVAR(mode) = 0; \
 GVAR(cameraTarget) = [false, [0, 0, 0], objNull]; \
-GVAR(holdTurretLockPFHID) = -1;
+GVAR(holdTurretLockPFHID) = -1; \
+GVAR(slewAim) = false; \
+GVAR(slewAnalog) = false; \
+GVAR(analogDirection) = [0, 0, 0, 0];
 
 #define PIPSTATE_OFF 0
 #define PIPSTATE_ON 1

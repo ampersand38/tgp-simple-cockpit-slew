@@ -28,11 +28,11 @@ if (tgp_main_setting_AimSlewBlockMouse && {isNil "ace_interact_menu_keyDown" || 
 
 switch (GVAR(mode)) do {
     case (MODE_PILOTCAMERA): {
-        [FUNC(handleSlew), 0] call CBA_fnc_addPerFrameHandler;
+        [FUNC(handleSlew), 0, false] call CBA_fnc_addPerFrameHandler;
     };
     case (MODE_TURRET): {
         if (!GVAR(isAutonomous)) then {tgp_main_vehicle setAutonomous true;};
-        [FUNC(handleSlewTurret), 0] call CBA_fnc_addPerFrameHandler;
+        [FUNC(handleSlewTurret), 0, false] call CBA_fnc_addPerFrameHandler;
     };
 }; // switch
 

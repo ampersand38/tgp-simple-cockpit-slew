@@ -87,7 +87,7 @@
             gf_control ctrlCommit 0;
         };
         tgp_main_slewAim = true;
-        [FUNC(handleSlewTurret), 0] call CBA_fnc_addPerFrameHandler;
+        [FUNC(handleSlewTurret), 0, false] call CBA_fnc_addPerFrameHandler;
     },{}
 ] call CBA_fnc_addKeybind;
 

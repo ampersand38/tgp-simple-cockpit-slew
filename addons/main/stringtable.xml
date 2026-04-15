@@ -46,6 +46,12 @@
         <Key ID="STR_TGP_Main_HMDLock_Tooltip">
             <English>Lock the active camera to the current aim point of the HMD.</English>
         </Key>
+        <Key ID="STR_TGP_Main_LockedTarget">
+            <English>Lock To Locked Target</English>
+        </Key>
+        <Key ID="STR_TGP_Main_LockedTarget_Tooltip">
+            <English>Lock the active camera to the currently locked target.</English>
+        </Key>
         <Key ID="STR_TGP_Main_ManualFireHint">
             <English>Show Hint</English>
         </Key>
