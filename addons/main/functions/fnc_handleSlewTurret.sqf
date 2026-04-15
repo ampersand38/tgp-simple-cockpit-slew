@@ -24,7 +24,7 @@ if (!tgp_main_slewAim) exitWith {
 
 if (tgp_main_setting_CenterMouse) then {setMousePosition [0.5, 0.5]};
 
-private _inputX = [inputAction "AimRight" - inputAction "AimLeft", GVAR(analogDirection) # 1 - GVAR(analogDirection) # 3] select _isAnalog;
+private _inputX = [inputAction "AimLeft" - inputAction "AimRight", GVAR(analogDirection) # 3 - GVAR(analogDirection) # 1] select _isAnalog;
 private _inputY = [inputAction "AimUp" - inputAction "AimDown", GVAR(analogDirection) # 0 - GVAR(analogDirection) # 2] select _isAnalog;
 private _mouseSlew = (_inputX != 0 || {_inputY != 0});
 tgp_main_isSlewing = tgp_main_slewAim && {_mouseSlew};
