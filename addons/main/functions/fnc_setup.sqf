@@ -136,7 +136,8 @@ tgp_main_cameraTarget = getPilotCameraTarget _vehicle;
 tgp_main_turret = [-1];
 tgp_main_vehicle = _vehicle;
 tgp_main_FOV = selectMax (("true" configClasses (_pilotCameraConfig >> "OpticsIn")) apply {
-    call compile ((_x >> "initFOV") call BIS_fnc_getCfgData)
+    private _fov = (_x >> "initFOV") call BIS_fnc_getCfgData;
+    if (_fov isEqualType "") then {parseNumber _fov} else {_fov}
 });
 
 GVAR(mode) = MODE_PILOTCAMERA;
